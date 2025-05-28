@@ -72,7 +72,7 @@ def generate_launch_description():
         }.items()
     )
 
-    # ROS-Gazebo bridge for sensor data and control
+    # ROS-Gazebo bridge for TurtleBot sensor data and control (ESSENTIAL!)
     ros_gz_bridge_cmd = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',

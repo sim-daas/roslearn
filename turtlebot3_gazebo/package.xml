@@ -19,11 +19,15 @@
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
   <depend>rclcpp</depend>
+  <depend>rclpy</depend>
   <depend>ros_gz_bridge</depend>
   <depend>ros_gz_image</depend>
   <depend>ros_gz_sim</depend>
   <depend>sensor_msgs</depend>
   <depend>tf2</depend>
+  <depend>cv_bridge</depend>
+  <depend>gazebo_msgs</depend>
+  <depend>std_srvs</depend>
   <export>
     <build_type>ament_cmake</build_type>
     <gazebo_ros gazebo_model_path="${prefix}/models"/>

@@ -74,8 +74,21 @@ install(TARGETS ${EXEC_NAME}
   DESTINATION lib/${PROJECT_NAME}
 )
 
+# Install Python scripts
+install(PROGRAMS
+  scripts/yolo_object_follower.py
+  scripts/spawn_person.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(DIRECTORY launch models params rviz urdf worlds
   DESTINATION share/${PROJECT_NAME}/
+)
+
+# Install scripts directory
+install(DIRECTORY scripts/
+  DESTINATION share/${PROJECT_NAME}/scripts/
+  USE_SOURCE_PERMISSIONS
 )
 
 install(DIRECTORY include/
