@@ -45,7 +45,7 @@ class YOLOObjectFollower(Node):
         # PID-like control gains - adjusted for smoother movement
         self.angular_gain = 0.002  # Reduced for smoother turning
         self.linear_gain = 1.0     # Base speed multiplier
-        self.max_linear_speed = 0.22   # Match teleop speeds
+        self.max_linear_speed = 0.6   # Increased 3x from 0.22
         self.max_angular_speed = 2.0   # Match teleop angular speeds
         self.search_angular_speed = 0.5  # Faster search rotation
         
@@ -173,11 +173,11 @@ class YOLOObjectFollower(Node):
         # Simplified linear velocity based on object size
         if area_ratio < self.approach_threshold:
             # Object too far, move forward at fixed speed
-            twist.linear.x = 0.15  # Fixed forward speed like teleop
+            twist.linear.x = 0.45  # Increased 3x from 0.15
             
         elif area_ratio > self.too_close_threshold:
             # Object too close, move backward
-            twist.linear.x = -0.1
+            twist.linear.x = -0.3  # Increased 3x from -0.1
             
         else:
             # Object at good distance, stop forward movement
