@@ -45,7 +45,7 @@ class YOLOObjectFollower(Node):
         # PID-like control gains - adjusted for smoother movement
         self.angular_gain = 0.002  # Reduced for smoother turning
         self.linear_gain = 1.0     # Base speed multiplier
-        self.max_linear_speed = 0.6   # Increased 3x from 0.22
+        self.max_linear_speed = 0.9   # Increased 3x from 0.22
         self.max_angular_speed = 2.0   # Match teleop angular speeds
         self.search_angular_speed = 0.5  # Faster search rotation
         
