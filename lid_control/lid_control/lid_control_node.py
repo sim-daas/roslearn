@@ -5,6 +5,7 @@ from rclpy.node import Node
 from std_srvs.srv import SetBool
 from std_msgs.msg import Float64
 import math
+import time
 
 class LidControlNode(Node):
     def __init__(self):
@@ -22,9 +23,9 @@ class LidControlNode(Node):
         
         self.get_logger().info('Lid Control Node initialized')
         
-        # Lid positions (in radians)
-        self.lid_closed_pos = 0.0
-        self.lid_open_pos = math.pi / 2  # 90 degrees
+        # Lid positions (in radians) - adjusted for proper closing and opening
+        self.lid_closed_pos = -0.02  # Slightly negative to ensure tight closure
+        self.lid_open_pos = 1.0  # 57 degrees - less extreme opening
         
     def timer_callback(self):
         """Check if publisher is connected"""
@@ -46,13 +47,14 @@ class LidControlNode(Node):
                 response.message = "Lid opened"
             else:  # Close lid
                 msg.data = self.lid_closed_pos
-                self.get_logger().info('Closing lid to 0 degrees')
+                self.get_logger().info(f'Closing lid to {self.lid_closed_pos} radians')
                 response.message = "Lid closed"
                 
-            # Publish command multiple times to ensure it's received
-            for i in range(10):
+            # Publish command multiple times with slight delay to ensure it's received
+            for i in range(15):
                 self.lid_pub.publish(msg)
-                self.get_logger().debug(f'Published lid command {i+1}/10: {msg.data}')
+                self.get_logger().debug(f'Published lid command {i+1}/15: {msg.data}')
+                time.sleep(0.01)  # Small delay between publications
                 
             response.success = True
             
@@ -67,16 +69,18 @@ class LidControlNode(Node):
         """Direct method to open lid"""
         msg = Float64()
         msg.data = self.lid_open_pos
-        for _ in range(5):
+        for _ in range(10):
             self.lid_pub.publish(msg)
+            time.sleep(0.01)
         self.get_logger().info('Lid opened directly')
         
     def close_lid_direct(self):
         """Direct method to close lid"""
         msg = Float64()
         msg.data = self.lid_closed_pos
-        for _ in range(5):
+        for _ in range(10):
             self.lid_pub.publish(msg)
+            time.sleep(0.01)
         self.get_logger().info('Lid closed directly')
 
 def main(args=None):
