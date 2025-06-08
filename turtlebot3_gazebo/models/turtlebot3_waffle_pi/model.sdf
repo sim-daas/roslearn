@@ -1,12 +1,11 @@
 <?xml version="1.0" ?>
-<sdf version="1.5">
+<sdf version="1.8">
   <model name="turtlebot3_waffle_pi">
-  <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
 
     <link name="base_footprint"/>
 
     <link name="base_link">
-
       <inertial>
         <pose>-0.064 0 0.048 0 0 0</pose>
         <inertia>
@@ -38,8 +37,9 @@
           </mesh>
         </geometry>
         <material>
-          <ambient>0.3 0.3 0.3 1.0</ambient>
-          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+          <ambient>0.5 0.5 0.5 1.0</ambient>
+          <diffuse>0.7 0.7 0.7 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
         </material>
       </visual>
     </link>
@@ -163,7 +163,6 @@
     </link>
 
     <link name="wheel_left_link">
-
       <inertial>
         <pose>0.0 0.144 0.023 -1.57 0 0</pose>
         <inertia>
@@ -186,7 +185,6 @@
           </cylinder>
         </geometry>
         <surface>
-          <!-- This friction pamareter don't contain reliable data!! -->
           <friction>
             <ode>
               <mu>100000</mu>
@@ -225,7 +223,6 @@
     </link>
 
     <link name="wheel_right_link">
-
       <inertial>
         <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
         <inertia>
@@ -248,7 +245,6 @@
           </cylinder>
         </geometry>
         <surface>
-          <!-- This friction pamareter don't contain reliable data!! -->
           <friction>
             <ode>
               <mu>100000</mu>
@@ -318,6 +314,17 @@
           </contact>
         </surface>
       </collision>
+      <visual name='visual'>
+        <geometry>
+          <sphere>
+            <radius>0.005000</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
     </link>
 
     <link name='caster_back_left_link'>
@@ -352,6 +359,17 @@
           </contact>
         </surface>
       </collision>
+      <visual name='visual'>
+        <geometry>
+          <sphere>
+            <radius>0.005000</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
     </link>
 
     <link name="camera_link"/>
@@ -371,6 +389,20 @@
       </inertial>
 
       <pose>0.076 0.0 0.093 0 0 0</pose>
+      
+      <visual name="camera_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.015 0.03 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+          <diffuse>0.0 0.0 0.0 1.0</diffuse>
+        </material>
+      </visual>
+      
       <sensor name="camera" type="camera">
         <always_on>true</always_on>
         <visualize>true</visualize>
@@ -391,9 +423,6 @@
           </clip>
           <noise>
             <type>gaussian</type>
-            <!-- Noise is sampled independently per pixel on each frame.
-                  That pixel's noise value is added to each of its color
-                  channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
@@ -401,6 +430,87 @@
       </sensor>
     </link>
 
+    <!-- Storage Box with Lid -->
+    <link name="storage_box_link">
+      <pose>-0.08 0 0.14 0 0 0</pose>
+      
+      <visual name="storage_box_visual">
+        <pose>0 0 0.025 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.12 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.6 0.4 1.0</ambient>
+          <diffuse>0.8 0.6 0.4 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="storage_box_collision">
+        <pose>0 0 0.025 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.12 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <inertial>
+        <pose>0 0 0.025 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0005</iyy>
+          <iyz>0</iyz>
+          <izz>0.0006</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Hinged Lid -->
+    <link name="lid_link">
+      <pose>-0.155 0 0.19 0 0 0</pose>
+      
+      <visual name="lid_visual">
+        <pose>0.075 0 0.0125 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.12 0.025</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.4 0.2 1.0</ambient>
+          <diffuse>0.6 0.4 0.2 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="lid_collision">
+        <pose>0.075 0 0.0125 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.12 0.025</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <inertial>
+        <pose>0.075 0 0.0125 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0003</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Joints -->
     <joint name="base_joint" type="fixed">
       <parent>base_footprint</parent>
       <child>base_link</child>
@@ -477,35 +587,58 @@
       </axis>
     </joint>
 
+    <joint name="storage_box_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>storage_box_link</child>
+    </joint>
+
+    <joint name="lid_joint" type="revolute">
+      <parent>storage_box_link</parent>
+      <child>lid_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>10</effort>
+          <velocity>1.0</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.01</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-
-       <!-- wheels -->
-       <left_joint>wheel_left_joint</left_joint>
-       <right_joint>wheel_right_joint</right_joint>
-
-       <!-- kinematics -->
-       <wheel_separation>0.287</wheel_separation>
-       <wheel_radius>0.033</wheel_radius>
-
-       <!-- limits -->
-       <max_linear_acceleration>1.0</max_linear_acceleration>
-
-       <topic>cmd_vel</topic>
-
-       <odom_topic>odom</odom_topic>
-       <frame_id>odom</frame_id>
-       <child_frame_id>base_footprint</child_frame_id>
-       <odom_publisher_frequency>30</odom_publisher_frequency>
-
-       <tf_topic>/tf</tf_topic>
-
+      <left_joint>wheel_left_joint</left_joint>
+      <right_joint>wheel_right_joint</right_joint>
+      <wheel_separation>0.287</wheel_separation>
+      <wheel_radius>0.033</wheel_radius>
+      <max_linear_acceleration>1.0</max_linear_acceleration>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <odom_publisher_frequency>30</odom_publisher_frequency>
+      <tf_topic>/tf</tf_topic>
     </plugin>
 
     <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
       <topic>joint_states</topic>
       <joint_name>wheel_left_joint</joint_name>
       <joint_name>wheel_right_joint</joint_name>
+      <joint_name>lid_joint</joint_name>
     </plugin>
 
+    <!-- Add ROS2 control for lid joint -->
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>lid_joint</joint_name>
+      <topic>/lid_joint_position_controller/command</topic>
+      <initial_position>0.0</initial_position>
+      <p_gain>100</p_gain>
+      <i_gain>0.01</i_gain>
+      <d_gain>10</d_gain>
+    </plugin>
   </model>
 </sdf>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(yolov8_msgs)
+project(yolov8_obb_msgs)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

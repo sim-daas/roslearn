@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot name="lid_gazebo" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="lid_gazebo_v0">
+    <!-- Gazebo materials -->
+    <gazebo reference="storage_box_link">
+      <material>Gazebo/Wood</material>
+    </gazebo>
+    
+    <gazebo reference="lid_link">
+      <material>Gazebo/WoodPallet</material>
+    </gazebo>
+
+    <!-- Gazebo joint control plugin -->
+    <gazebo>
+      <plugin name="lid_joint_controller" filename="libgazebo_ros_joint_position_controller.so">
+        <joint_name>lid_hinge_joint</joint_name>
+        <type>position</type>
+        <pid_gains>
+          <p>100.0</p>
+          <i>0.01</i>
+          <d>10.0</d>
+        </pid_gains>
+        <initial_position>0.0</initial_position>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
