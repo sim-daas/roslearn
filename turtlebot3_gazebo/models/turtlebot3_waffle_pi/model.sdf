@@ -9,27 +9,27 @@
       <inertial>
         <pose>-0.064 0 0.048 0 0 0</pose>
         <inertia>
-          <ixx>4.2111447e-02</ixx>
+          <ixx>3.2458e-02</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>4.2111447e-02</iyy>
+          <iyy>3.2458e-02</iyy>
           <iyz>0</iyz>
-          <izz>7.5254874e-02</izz>
+          <izz>5.8722e-02</izz>
         </inertia>
-        <mass>1.3729096e+00</mass>
+        <mass>1.3729</mass>
       </inertial>
 
       <collision name="base_collision">
         <pose>-0.064 0 0.048 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.265 0.265 0.089</size>
+            <size>0.266 0.266 0.096</size>
           </box>
         </geometry>
       </collision>
 
       <visual name="base_visual">
-        <pose>-0.064 0 0 0 0 0</pose>
+        <pose>-0.032 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://turtlebot3_common/meshes/bases/waffle_pi_base.stl</uri>
@@ -37,9 +37,8 @@
           </mesh>
         </geometry>
         <material>
-          <ambient>0.5 0.5 0.5 1.0</ambient>
-          <diffuse>0.7 0.7 0.7 1.0</diffuse>
-          <specular>0.1 0.1 0.1 1.0</specular>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
         </material>
       </visual>
     </link>
@@ -138,7 +137,6 @@
         <pose>-0.064 0 0.121 0 0 0</pose>
         <update_rate>10</update_rate>
         <topic>scan</topic>
-        <gz_frame_id>base_scan</gz_frame_id>
         <lidar>
           <scan>
             <horizontal>
@@ -408,7 +406,6 @@
         <visualize>true</visualize>
         <update_rate>30</update_rate>
         <topic>camera/image_raw</topic>
-        <gz_frame_id>camera_rgb_frame</gz_frame_id>
         <camera name="picam">
           <camera_info_topic>camera/camera_info</camera_info_topic>
           <horizontal_fov>1.085595</horizontal_fov>
@@ -432,13 +429,13 @@
 
     <!-- Storage Box with Lid -->
     <link name="storage_box_link">
-      <pose>-0.08 0 0.14 0 0 0</pose>
+      <pose>-0.05 0 0.11 0 0 0</pose>
       
       <visual name="storage_box_visual">
         <pose>0 0 0.025 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.15 0.12 0.05</size>
+            <size>0.12 0.10 0.05</size>
           </box>
         </geometry>
         <material>
@@ -451,7 +448,7 @@
         <pose>0 0 0.025 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.15 0.12 0.05</size>
+            <size>0.12 0.10 0.05</size>
           </box>
         </geometry>
       </collision>
@@ -460,25 +457,25 @@
         <pose>0 0 0.025 0 0 0</pose>
         <mass>0.2</mass>
         <inertia>
-          <ixx>0.0004</ixx>
+          <ixx>0.0003</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0005</iyy>
+          <iyy>0.0004</iyy>
           <iyz>0</iyz>
-          <izz>0.0006</izz>
+          <izz>0.0005</izz>
         </inertia>
       </inertial>
     </link>
 
     <!-- Hinged Lid -->
     <link name="lid_link">
-      <pose>-0.155 0 0.19 0 0 0</pose>
+      <pose>-0.11 0 0.155 0 0 0</pose>
       
       <visual name="lid_visual">
-        <pose>0.075 0 0.0125 0 0 0</pose>
+        <pose>0.06 0 0.01 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.15 0.12 0.025</size>
+            <size>0.12 0.10 0.02</size>
           </box>
         </geometry>
         <material>
@@ -488,35 +485,62 @@
       </visual>
       
       <collision name="lid_collision">
-        <pose>0.075 0 0.0125 0 0 0</pose>
+        <pose>0.06 0 0.01 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.15 0.12 0.025</size>
+            <size>0.12 0.10 0.02</size>
           </box>
         </geometry>
       </collision>
       
       <inertial>
-        <pose>0.075 0 0.0125 0 0 0</pose>
+        <pose>0.06 0 0.01 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
-          <ixx>0.0002</ixx>
+          <ixx>0.0001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0003</iyy>
+          <iyy>0.0002</iyy>
           <iyz>0</iyz>
-          <izz>0.0003</izz>
+          <izz>0.0002</izz>
         </inertia>
       </inertial>
     </link>
 
-    <!-- Joints -->
+    <!-- Base joint -->
     <joint name="base_joint" type="fixed">
       <parent>base_footprint</parent>
       <child>base_link</child>
       <pose>0.0 0.0 0.010 0 0 0</pose>
     </joint>
 
+    <!-- Storage box joint -->
+    <joint name="storage_box_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>storage_box_link</child>
+    </joint>
+
+    <!-- Lid joint -->
+    <joint name="lid_joint" type="revolute">
+      <parent>storage_box_link</parent>
+      <child>lid_link</child>
+      <pose>-0.06 0 0.05 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>10</effort>
+          <velocity>2.0</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- Wheel joints -->
     <joint name="wheel_left_joint" type="revolute">
       <parent>base_link</parent>
       <child>wheel_left_link</child>
@@ -587,29 +611,7 @@
       </axis>
     </joint>
 
-    <joint name="storage_box_joint" type="fixed">
-      <parent>base_link</parent>
-      <child>storage_box_link</child>
-    </joint>
-
-    <joint name="lid_joint" type="revolute">
-      <parent>storage_box_link</parent>
-      <child>lid_link</child>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>1.5708</upper>
-          <effort>10</effort>
-          <velocity>1.0</velocity>
-        </limit>
-        <dynamics>
-          <damping>0.1</damping>
-          <friction>0.01</friction>
-        </dynamics>
-      </axis>
-    </joint>
-
+    <!-- Gazebo plugins -->
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
       <left_joint>wheel_left_joint</left_joint>
       <right_joint>wheel_right_joint</right_joint>
@@ -631,14 +633,15 @@
       <joint_name>lid_joint</joint_name>
     </plugin>
 
-    <!-- Add ROS2 control for lid joint -->
+    <!-- Simple joint position controller for lid -->
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>lid_joint</joint_name>
-      <topic>/lid_joint_position_controller/command</topic>
+      <topic>lid_joint_position_controller/command</topic>
       <initial_position>0.0</initial_position>
-      <p_gain>100</p_gain>
-      <i_gain>0.01</i_gain>
-      <d_gain>10</d_gain>
+      <p_gain>1000</p_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>100</d_gain>
     </plugin>
+
   </model>
 </sdf>

@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'lid_control_node = lid_control.lid_control_node:main',
             'lid_detector = lid_control.lid_detector:main',
+            'test_lid = lid_control.test_lid:main',
         ],
     },
 )
