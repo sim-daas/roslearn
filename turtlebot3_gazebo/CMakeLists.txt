@@ -78,10 +78,11 @@ install(TARGETS ${EXEC_NAME}
 install(PROGRAMS
   scripts/yolo_object_follower.py
   scripts/spawn_person.py
+  scripts/create_office_map.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch models params rviz urdf worlds
+install(DIRECTORY launch models params rviz urdf worlds maps
   DESTINATION share/${PROJECT_NAME}/
 )
 

@@ -1,0 +1,311 @@
+[0.000000] (-) TimerEvent: {}
+[0.000139] (turtlebot3_gazebo) JobQueued: {'identifier': 'turtlebot3_gazebo', 'dependencies': OrderedDict()}
+[0.000173] (turtlebot3_gazebo) JobStarted: {'identifier': 'turtlebot3_gazebo'}
+[0.006841] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'cmake'}
+[0.007728] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '/root/devws/src/turtlebot3_gazebo', '-DCMAKE_INSTALL_PREFIX=/root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo'], 'cwd': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'env': OrderedDict({'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'HOSTNAME': '192.168.1.15', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/devws/install/yolov8_obb_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/root/devws', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/root/devws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/rostut:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/root/devws/install/lid_control:/opt/ros/jazzy', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'waffle_pi', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/devws/install/yolov8_obb_msgs/lib/python3.12/site-packages:/root/devws/install/rostut/lib/python3.12/site-packages:/root/devws/install/lid_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/devws/install/rostut:/root/devws/install/lid_control:/opt/ros/jazzy'}), 'shell': False}
+[0.054607] (turtlebot3_gazebo) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.094635] (turtlebot3_gazebo) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.099566] (-) TimerEvent: {}
+[0.107162] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.177439] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.183426] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.183598] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.183870] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.190948] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199645] (-) TimerEvent: {}
+[0.265540] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.271929] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.272101] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.272877] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.275662] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.300114] (-) TimerEvent: {}
+[0.387668] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.400208] (-) TimerEvent: {}
+[0.468231] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ros_gz_sim: 1.0.12 (/opt/ros/jazzy/share/ros_gz_sim/cmake)\n'}
+[0.500324] (-) TimerEvent: {}
+[0.503120] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.514539] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.527677] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.542410] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.600716] (-) TimerEvent: {}
+[0.602540] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.605638] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.675361] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.688086] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.700812] (-) TimerEvent: {}
+[0.706871] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.800920] (-) TimerEvent: {}
+[0.882147] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[0.899978] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.900992] (-) TimerEvent: {}
+[0.972515] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Configuring done (1.0s)\n'}
+[0.980761] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.983114] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Build files have been written to: /root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo\n'}
+[0.991519] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[0.991805] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'build'}
+[0.991824] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', '--', '-j22', '-l22'], 'cwd': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'env': OrderedDict({'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'HOSTNAME': '192.168.1.15', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/devws/install/yolov8_obb_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/root/devws', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/root/devws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/rostut:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/root/devws/install/lid_control:/opt/ros/jazzy', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'waffle_pi', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/devws/install/yolov8_obb_msgs/lib/python3.12/site-packages:/root/devws/install/rostut/lib/python3.12/site-packages:/root/devws/install/lid_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/devws/install/rostut:/root/devws/install/lid_control:/opt/ros/jazzy'}), 'shell': False}
+[1.001086] (-) TimerEvent: {}
+[1.030111] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o\x1b[0m\n'}
+[1.101508] (-) TimerEvent: {}
+[1.201891] (-) TimerEvent: {}
+[1.302311] (-) TimerEvent: {}
+[1.402715] (-) TimerEvent: {}
+[1.503170] (-) TimerEvent: {}
+[1.603471] (-) TimerEvent: {}
+[1.704198] (-) TimerEvent: {}
+[1.804518] (-) TimerEvent: {}
+[1.904823] (-) TimerEvent: {}
+[2.005102] (-) TimerEvent: {}
+[2.105371] (-) TimerEvent: {}
+[2.205651] (-) TimerEvent: {}
+[2.305940] (-) TimerEvent: {}
+[2.406590] (-) TimerEvent: {}
+[2.506884] (-) TimerEvent: {}
+[2.607266] (-) TimerEvent: {}
+[2.707544] (-) TimerEvent: {}
+[2.807837] (-) TimerEvent: {}
+[2.908248] (-) TimerEvent: {}
+[3.008529] (-) TimerEvent: {}
+[3.108817] (-) TimerEvent: {}
+[3.209187] (-) TimerEvent: {}
+[3.309644] (-) TimerEvent: {}
+[3.409928] (-) TimerEvent: {}
+[3.510209] (-) TimerEvent: {}
+[3.610487] (-) TimerEvent: {}
+[3.711232] (-) TimerEvent: {}
+[3.811608] (-) TimerEvent: {}
+[3.912327] (-) TimerEvent: {}
+[4.012855] (-) TimerEvent: {}
+[4.113346] (-) TimerEvent: {}
+[4.213937] (-) TimerEvent: {}
+[4.314333] (-) TimerEvent: {}
+[4.414740] (-) TimerEvent: {}
+[4.515020] (-) TimerEvent: {}
+[4.615422] (-) TimerEvent: {}
+[4.715693] (-) TimerEvent: {}
+[4.816056] (-) TimerEvent: {}
+[4.916616] (-) TimerEvent: {}
+[5.017294] (-) TimerEvent: {}
+[5.117650] (-) TimerEvent: {}
+[5.217915] (-) TimerEvent: {}
+[5.318517] (-) TimerEvent: {}
+[5.418808] (-) TimerEvent: {}
+[5.519076] (-) TimerEvent: {}
+[5.619358] (-) TimerEvent: {}
+[5.719654] (-) TimerEvent: {}
+[5.820025] (-) TimerEvent: {}
+[5.920411] (-) TimerEvent: {}
+[6.020786] (-) TimerEvent: {}
+[6.121062] (-) TimerEvent: {}
+[6.221324] (-) TimerEvent: {}
+[6.321595] (-) TimerEvent: {}
+[6.422150] (-) TimerEvent: {}
+[6.522685] (-) TimerEvent: {}
+[6.622969] (-) TimerEvent: {}
+[6.723238] (-) TimerEvent: {}
+[6.823533] (-) TimerEvent: {}
+[6.923862] (-) TimerEvent: {}
+[7.024146] (-) TimerEvent: {}
+[7.124433] (-) TimerEvent: {}
+[7.186289] (turtlebot3_gazebo) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable turtlebot3_drive\x1b[0m\n'}
+[7.224640] (-) TimerEvent: {}
+[7.325084] (-) TimerEvent: {}
+[7.417110] (turtlebot3_gazebo) StdoutLine: {'line': b'[100%] Built target turtlebot3_drive\n'}
+[7.425152] (-) TimerEvent: {}
+[7.425910] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[7.426196] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'install'}
+[7.432332] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo'], 'cwd': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'env': OrderedDict({'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'HOSTNAME': '192.168.1.15', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/devws/install/yolov8_obb_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/root', 'OLDPWD': '/root/devws', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/root/devws/install', 'ROS_DISTRO': 'jazzy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/rostut:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/root/devws/install/lid_control:/opt/ros/jazzy', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/jazzy/share', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/root/devws/src/turtlebot3_gazebo/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'waffle_pi', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/devws/install/yolov8_obb_msgs/lib/python3.12/site-packages:/root/devws/install/rostut/lib/python3.12/site-packages:/root/devws/install/lid_control/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/devws/install/yolov8_obb_msgs:/root/devws/install/yolov8_obb:/root/devws/install/turtlebot3_gazebo:/root/devws/install/robot_description:/root/devws/install/panda_moveit_config:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/devws/install/rostut:/root/devws/install/lid_control:/opt/ros/jazzy'}), 'shell': False}
+[7.437986] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.438115] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive\n'}
+[7.446059] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive" to ""\n'}
+[7.446205] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/yolo_object_follower.py\n'}
+[7.446283] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/spawn_person.py\n'}
+[7.446348] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/create_office_map.py\n'}
+[7.446410] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch\n'}
+[7.446470] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/empty_world.launch.py\n'}
+[7.446534] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/robot_state_publisher.launch.py\n'}
+[7.446596] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/spawn_turtlebot3.launch.py\n'}
+[7.447217] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_house.launch.py\n'}
+[7.447868] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_world.launch.py\n'}
+[7.447942] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_world_with_lid.launch.py\n'}
+[7.448007] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/robot_state_publisher_with_lid.launch.py\n'}
+[7.448069] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_office.launch.py\n'}
+[7.448129] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models\n'}
+[7.448816] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing\n'}
+[7.448931] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials\n'}
+[7.449019] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures\n'}
+[7.449108] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/eyebrow001-unmodified.png\n'}
+[7.449189] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/eyebrow001.png\n'}
+[7.449267] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/green_eye.png\n'}
+[7.449355] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/jeans01_normals.png\n'}
+[7.449442] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/jeans_basic_diffuse.png\n'}
+[7.449513] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/male02_diffuse_black-unmodified.png\n'}
+[7.449606] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/male02_diffuse_black.png\n'}
+[7.449696] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/teeth.png\n'}
+[7.449779] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/tshirt02_normals.png\n'}
+[7.449870] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/tshirt02_texture.png\n'}
+[7.449951] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/materials/textures/young_lightskinned_male_diffuse.png\n'}
+[7.450032] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/meshes\n'}
+[7.450112] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/meshes/standing.dae\n'}
+[7.450188] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/model.config\n'}
+[7.450264] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/model.sdf\n'}
+[7.450346] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails\n'}
+[7.450421] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails/1.png\n'}
+[7.450500] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails/2.png\n'}
+[7.450581] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails/3.png\n'}
+[7.450667] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails/4.png\n'}
+[7.450744] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/person_standing/thumbnails/5.png\n'}
+[7.450835] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger\n'}
+[7.450913] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model-1_4.sdf\n'}
+[7.450989] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.config\n'}
+[7.451071] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.sdf\n'}
+[7.451148] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam\n'}
+[7.451228] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model-1_4.sdf\n'}
+[7.451309] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.config\n'}
+[7.451385] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.sdf\n'}
+[7.451462] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common\n'}
+[7.451542] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes\n'}
+[7.451617] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases\n'}
+[7.451708] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/burger_base.stl\n'}
+[7.451785] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_base.stl\n'}
+[7.451860] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_pi_base.stl\n'}
+[7.451930] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/burger_base.dae\n'}
+[7.452006] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/lds.dae\n'}
+[7.452083] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/r200.dae\n'}
+[7.452164] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors\n'}
+[7.452243] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.dae\n'}
+[7.452327] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.jpg\n'}
+[7.452390] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/lds.stl\n'}
+[7.452462] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.dae\n'}
+[7.452530] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.jpg\n'}
+[7.452592] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/tire.dae\n'}
+[7.452665] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_base.dae\n'}
+[7.452732] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_pi_base.dae\n'}
+[7.452802] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels\n'}
+[7.452864] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/left_tire.stl\n'}
+[7.452933] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/right_tire.stl\n'}
+[7.453006] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/model.config\n'}
+[7.453077] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house\n'}
+[7.453145] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table\n'}
+[7.453213] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials\n'}
+[7.453273] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures\n'}
+[7.453341] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Maple.jpg\n'}
+[7.453418] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Wood_Floor_Dark.jpg\n'}
+[7.453494] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/meshes\n'}
+[7.453563] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/meshes/cafe_table.dae\n'}
+[7.453623] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model-1_4.sdf\n'}
+[7.453686] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.config\n'}
+[7.453746] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.sdf\n'}
+[7.453805] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can\n'}
+[7.453864] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/meshes\n'}
+[7.453923] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/meshes/trash_can.dae\n'}
+[7.453987] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.config\n'}
+[7.454049] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.sdf\n'}
+[7.454108] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox\n'}
+[7.454193] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials\n'}
+[7.454318] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/scripts\n'}
+[7.454460] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/scripts/mailbox.material\n'}
+[7.454805] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures\n'}
+[7.454913] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.png\n'}
+[7.454966] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.tga.orig\n'}
+[7.455060] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Spec.png\n'}
+[7.455099] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/meshes\n'}
+[7.455152] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/meshes/mailbox.dae\n'}
+[7.455206] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_3.sdf\n'}
+[7.455252] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_4.sdf\n'}
+[7.455297] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.config\n'}
+[7.455511] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.sdf\n'}
+[7.455647] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.config\n'}
+[7.455711] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.sdf\n'}
+[7.455791] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble\n'}
+[7.455921] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials\n'}
+[7.455985] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/scripts\n'}
+[7.456034] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/scripts/table_lightmap.material\n'}
+[7.456160] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures\n'}
+[7.456228] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/marble.png\n'}
+[7.456305] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/table_lightmap.png\n'}
+[7.456390] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/meshes\n'}
+[7.456468] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/meshes/table_lightmap.dae\n'}
+[7.456538] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model-1_4.sdf\n'}
+[7.456614] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.config\n'}
+[7.456674] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.sdf\n'}
+[7.456716] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures\n'}
+[7.456782] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/bricks.png\n'}
+[7.456828] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/wood.png\n'}
+[7.456951] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle\n'}
+[7.457020] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model-1_4.sdf\n'}
+[7.457087] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.config\n'}
+[7.457136] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.sdf\n'}
+[7.457202] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi\n'}
+[7.457270] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model-1_4_.sdf\n'}
+[7.457324] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.config\n'}
+[7.457370] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.sdf\n'}
+[7.457442] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model_fallback.sdf\n'}
+[7.457496] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world\n'}
+[7.457561] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes\n'}
+[7.457624] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/hexagon.dae\n'}
+[7.457704] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/wall.dae\n'}
+[7.458164] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model-1_4.sdf\n'}
+[7.458248] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.config\n'}
+[7.458338] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.sdf\n'}
+[7.458412] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params\n'}
+[7.458472] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_bridge.yaml\n'}
+[7.458521] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_cam_bridge.yaml\n'}
+[7.458566] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_bridge.yaml\n'}
+[7.458612] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_pi_bridge.yaml\n'}
+[7.458694] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz\n'}
+[7.458747] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz/tb3_gazebo.rviz\n'}
+[7.458800] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz/tb3_office.rviz\n'}
+[7.458867] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf\n'}
+[7.458970] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/common_properties.urdf\n'}
+[7.459031] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger.urdf\n'}
+[7.459080] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger_cam.urdf\n'}
+[7.459188] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle.urdf\n'}
+[7.459240] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle_pi.urdf\n'}
+[7.459301] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle_pi.urdf.xacro\n'}
+[7.459342] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle_pi_with_lid.urdf.xacro\n'}
+[7.459393] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds\n'}
+[7.459438] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_world.world\n'}
+[7.459486] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autorace_2020.world\n'}
+[7.459527] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1.world\n'}
+[7.459575] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2.world\n'}
+[7.459652] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3.world\n'}
+[7.459710] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4.world\n'}
+[7.459759] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_house.world\n'}
+[7.459810] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_world.world\n'}
+[7.459858] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_office.world\n'}
+[7.459914] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//maps\n'}
+[7.459962] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//maps/office_map.yaml\n'}
+[7.460010] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo//maps/office_map.pgm\n'}
+[7.460052] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/scripts/\n'}
+[7.460094] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/scripts//spawn_person.py\n'}
+[7.460138] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/scripts//yolo_object_follower.py\n'}
+[7.460181] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/scripts//create_office_map.py\n'}
+[7.460225] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include/\n'}
+[7.460277] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo\n'}
+[7.460320] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle1.hpp\n'}
+[7.460368] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle2.hpp\n'}
+[7.460414] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacles.hpp\n'}
+[7.460463] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_bar_plugin.hpp\n'}
+[7.460510] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_light_plugin.hpp\n'}
+[7.460551] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/include//turtlebot3_gazebo/turtlebot3_drive.hpp\n'}
+[7.460600] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/ament_index/resource_index/package_run_dependencies/turtlebot3_gazebo\n'}
+[7.460646] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/ament_index/resource_index/parent_prefix_path/turtlebot3_gazebo\n'}
+[7.460697] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.sh\n'}
+[7.460741] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.dsv\n'}
+[7.460791] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.sh\n'}
+[7.460834] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.dsv\n'}
+[7.460886] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.bash\n'}
+[7.460930] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.sh\n'}
+[7.460982] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.zsh\n'}
+[7.461034] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.dsv\n'}
+[7.461073] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.dsv\n'}
+[7.461114] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/ament_index/resource_index/packages/turtlebot3_gazebo\n'}
+[7.461165] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[7.461208] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[7.461255] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig.cmake\n'}
+[7.461305] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig-version.cmake\n'}
+[7.461349] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /root/devws/src/turtlebot3_gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.xml\n'}
+[7.461393] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[7.470098] (turtlebot3_gazebo) JobEnded: {'identifier': 'turtlebot3_gazebo', 'rc': 0}
+[7.470497] (-) EventReactorShutdown: {}
