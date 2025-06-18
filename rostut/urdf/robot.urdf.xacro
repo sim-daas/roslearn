@@ -5,6 +5,10 @@
     <color rgba="0.5 0.5 0.5 1.0"/>
   </material>
 
+  <material name="red">
+    <color rgba="1 0 0 1.0"/>
+  </material>
+  
   <link name="base_link">
     <visual>
       <geometry>
@@ -27,5 +31,34 @@
                izz="0.01"/>
     </inertial>
   </link>
+
+  <link name="second_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.2 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <material name="red"/> <!-- Referencing global material -->
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.2 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="2.0"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0"
+               iyy="0.01" iyz="0.0"
+               izz="0.01"/>
+    </inertial>
+  </link>
+ 
+  <joint name="base_to_second" type="fixed">
+    <parent link="base_link"/>
+    <child link="second_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
 
 </robot>
