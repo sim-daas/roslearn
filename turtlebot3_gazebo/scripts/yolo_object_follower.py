@@ -51,8 +51,8 @@ class YOLOObjectFollower(Node):
         
         # Target size control
         self.target_area_ratio = 0.12  # Desired object size in image (12% of image)
-        self.approach_threshold = 0.08  # Stop approaching when object is this size
-        self.too_close_threshold = 0.20  # Back away if object is larger than this
+        self.approach_threshold = 0.04  # Stop approaching when object is this size
+        self.too_close_threshold = 0.6  # Back away if object is larger than this
         
         # Timer for control loop
         self.control_timer = self.create_timer(0.1, self.control_loop)
