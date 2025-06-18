@@ -62,6 +62,13 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
     </include>
+    <model name="Standing person">
+      <static>1</static>
+      <pose>4 -8 0 0 0 0</pose>
+      <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Standing person</uri>
+      </include>
+    </model>
 
     <model name="turtlebot3_house">
       <static>1</static>
