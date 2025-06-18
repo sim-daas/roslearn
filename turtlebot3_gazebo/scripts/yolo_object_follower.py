@@ -4,6 +4,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
+from std_msgs.msg import String
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -29,6 +30,7 @@ class YOLOObjectFollower(Node):
             Image, '/camera/image_raw', self.image_callback, 10)
         self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
         self.detection_pub = self.create_publisher(Image, '/detection_image', 10)
+        self.detstate_pub = self.create_publisher(String, '/detstate', 10)
         
         # Control parameters
         self.image_width = 640
@@ -51,8 +53,8 @@ class YOLOObjectFollower(Node):
         
         # Target size control
         self.target_area_ratio = 0.12  # Desired object size in image (12% of image)
-        self.approach_threshold = 0.04  # Stop approaching when object is this size
-        self.too_close_threshold = 0.6  # Back away if object is larger than this
+        self.approach_threshold = 0.03  # Stop approaching when object is this size
+        self.too_close_threshold = 0.05  # Back away if object is larger than this
         
         # Timer for control loop
         self.control_timer = self.create_timer(0.1, self.control_loop)
@@ -125,23 +127,38 @@ class YOLOObjectFollower(Node):
     def control_loop(self):
         """Main control loop called by timer"""
         twist = Twist()
+        detstate_msg = String()
         
         if self.robot_state == "SEARCHING":
             # Rotate slowly to search for target
             twist.angular.z = self.search_angular_speed
             twist.linear.x = 0.0
+            detstate_msg.data = "0"
             
         elif self.robot_state == "FOLLOWING" and self.current_detection:
             # Follow the detected target
             twist = self.calculate_following_velocity(self.current_detection)
             
+            # Calculate size status for face recognition
+            bbox_area = self.current_detection['area']
+            area_ratio = bbox_area / (self.image_width * self.image_height)
+            
+            if area_ratio < self.approach_threshold:
+                detstate_msg.data = "TOO FAR"
+            elif area_ratio > self.too_close_threshold:
+                detstate_msg.data = "TOO CLOSE"
+            else:
+                detstate_msg.data = "GOOD DISTANCE"
+            
         else:
             # Stop if no valid state
             twist.linear.x = 0.0
             twist.angular.z = 0.0
+            detstate_msg.data = "0"
         
-        # Publish velocity command
+        # Publish velocity command and detection state
         self.cmd_vel_pub.publish(twist)
+        self.detstate_pub.publish(detstate_msg)
 
     def calculate_following_velocity(self, detection):
         x1, y1, x2, y2 = detection['bbox']

@@ -78,6 +78,7 @@ install(TARGETS ${EXEC_NAME}
 install(PROGRAMS
   scripts/yolo_object_follower.py
   scripts/spawn_person.py
+  scripts/face_recognition_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
