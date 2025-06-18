@@ -1,0 +1,24 @@
+# ~/.config/tmuxinator/turtlebot_dev.yml
+# or /root/.config/tmuxinator/turtlebot_dev.yml in the Docker container
+
+name: turtlelid
+root: /root/devws
+
+# The /root/.bashrc should source ROS, the workspace, and set TURTLEBOT3_MODEL
+# Each command sources /root/.bashrc to ensure the environment is loaded for that specific pane.
+
+windows:
+  - gazebo_simulation:
+      layout: tiled # You can choose other layouts like main-vertical, even-horizontal etc.
+      panes:
+        - echo "Sourcing environment and launching Gazebo empty world...";
+          source /root/.bashrc && ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+  - yolo_control:
+      layout: tiled
+      panes:
+        - echo "Sourcing environment and starting teleop keyboard...";
+          source /root/.bashrc && ros2 run lid_control lid_control_node
+  - lid_control_bridge:
+      layout: tiled
+      panes:
+        - 'source /root/.bashrc && sleep 10 && ros2 service call /control_lid std_srvs/srv/SetBool "{data: true}"'

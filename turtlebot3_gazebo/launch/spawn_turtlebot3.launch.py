@@ -25,6 +25,8 @@ def generate_launch_description():
     # Get the urdf file
     TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
     model_folder = 'turtlebot3_' + TURTLEBOT3_MODEL
+    
+    # Use the modified SDF file with lid
     urdf_path = os.path.join(
         get_package_share_directory('turtlebot3_gazebo'),
         'models',
@@ -81,6 +83,17 @@ def generate_launch_description():
         arguments=['/camera/image_raw'],
         output='screen',
     )
+    
+    # Bridge for lid joint control
+    lid_bridge_cmd = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/lid_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double'
+        ],
+        output='screen',
+    )
+
     ld = LaunchDescription()
 
     # Declare the launch options
@@ -91,5 +104,6 @@ def generate_launch_description():
     ld.add_action(start_gazebo_ros_spawner_cmd)
     ld.add_action(start_gazebo_ros_bridge_cmd)
     ld.add_action(start_gazebo_ros_image_bridge_cmd) if TURTLEBOT3_MODEL != 'burger' else None
+    ld.add_action(lid_bridge_cmd)
 
     return ld
