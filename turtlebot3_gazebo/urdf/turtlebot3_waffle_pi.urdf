@@ -231,6 +231,13 @@
   </joint>
 
   <link name="camera_link">
+    <visual>
+      <origin xyz="0.005 0.011 0.013" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.015 0.030 0.027"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
     <collision>
       <origin xyz="0.005 0.011 0.013" rpy="0 0 0"/>
       <geometry>
@@ -264,7 +271,7 @@
 
   <!-- Storage Box with Lid (BIGGER AND MORE VISIBLE) -->
   <joint name="storage_box_joint" type="fixed">
-    <origin xyz="-0.08 0 0.16" rpy="0 0 0"/>
+    <origin xyz="-0.08 0 0.095" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="storage_box_link"/>
   </joint>
@@ -295,7 +302,7 @@
     <origin xyz="-0.125 0 0.10" rpy="0 0 0"/>
     <parent link="storage_box_link"/>
     <child link="lid_link"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <limit lower="0" upper="1.5708" effort="50" velocity="2.0"/>
     <dynamics damping="0.2" friction="0.05"/>
   </joint>

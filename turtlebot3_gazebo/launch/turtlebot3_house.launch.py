@@ -56,23 +56,6 @@ def generate_launch_description():
         }.items()
     )
 
-    # ROS-Gazebo bridge for TurtleBot sensor data and control (ESSENTIAL!)
-    ros_gz_bridge_cmd = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-            '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-            '/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
-            '/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
-            '/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry',
-            '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
-            '/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo'
-        ],
-        parameters=[{'use_sim_time': use_sim_time}],
-        output='screen'
-    )
-
     # RViz2 node for visualization with custom config
     rviz_config_file = os.path.join(
         get_package_share_directory('turtlebot3_gazebo'),
@@ -103,7 +86,6 @@ def generate_launch_description():
     ld.add_action(spawn_turtlebot_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(set_env_vars_resources)
-#    ld.add_action(ros_gz_bridge_cmd)
     ld.add_action(rviz2_cmd)
 
     return ld

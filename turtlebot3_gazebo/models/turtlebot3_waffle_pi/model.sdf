@@ -137,6 +137,7 @@
         <pose>-0.064 0 0.121 0 0 0</pose>
         <update_rate>10</update_rate>
         <topic>scan</topic>
+        <gz_frame_id>base_scan</gz_frame_id>
         <lidar>
           <scan>
             <horizontal>
@@ -374,7 +375,7 @@
 
     <link name="camera_rgb_frame">
       <inertial>
-        <pose>0.076 0.0 0.093 0 0 0</pose>
+        <pose>0.276 0.0 0.093 0 0 0</pose>
         <inertia>
           <ixx>0.001</ixx>
           <ixy>0.000</ixy>
@@ -386,20 +387,7 @@
         <mass>0.035</mass>
       </inertial>
 
-      <pose>0.076 0.0 0.093 0 0 0</pose>
-      
-      <visual name="camera_visual">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>0.015 0.03 0.02</size>
-          </box>
-        </geometry>
-        <material>
-          <ambient>0.0 0.0 0.0 1.0</ambient>
-          <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        </material>
-      </visual>
+      <pose>0.095 0.0 0.093 0 0 0</pose>
       
       <sensor name="camera" type="camera">
         <always_on>true</always_on>
@@ -429,13 +417,13 @@
 
     <!-- Storage Box with Lid -->
     <link name="storage_box_link">
-      <pose>-0.05 0 0.11 0 0 0</pose>
+      <pose>-0.08 0 0.095 0 0 0</pose>
       
       <visual name="storage_box_visual">
-        <pose>0 0 0.025 0 0 0</pose>
+        <pose>0 0 0.05 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.12 0.10 0.05</size>
+            <size>0.25 0.20 0.10</size>
           </box>
         </geometry>
         <material>
@@ -445,64 +433,64 @@
       </visual>
       
       <collision name="storage_box_collision">
-        <pose>0 0 0.025 0 0 0</pose>
+        <pose>0 0 0.05 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.12 0.10 0.05</size>
+            <size>0.25 0.20 0.10</size>
           </box>
         </geometry>
       </collision>
       
       <inertial>
-        <pose>0 0 0.025 0 0 0</pose>
-        <mass>0.2</mass>
+        <pose>0 0 0.05 0 0 0</pose>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.0003</ixx>
+          <ixx>0.002</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0004</iyy>
+          <iyy>0.003</iyy>
           <iyz>0</iyz>
-          <izz>0.0005</izz>
+          <izz>0.004</izz>
         </inertia>
       </inertial>
     </link>
 
     <!-- Hinged Lid -->
     <link name="lid_link">
-      <pose>-0.11 0 0.145 0 0 0</pose>
+      <pose>-0.205 0 0.195 0 0 0</pose>
       
       <visual name="lid_visual">
-        <pose>0.06 0 0.005 0 0 0</pose>
+        <pose>0.125 0 0.025 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.12 0.10 0.01</size>
+            <size>0.25 0.20 0.05</size>
           </box>
         </geometry>
         <material>
-          <ambient>0.6 0.4 0.2 1.0</ambient>
-          <diffuse>0.6 0.4 0.2 1.0</diffuse>
+          <ambient>1.0 0.4235 0.0392 1.0</ambient>
+          <diffuse>1.0 0.4235 0.0392 1.0</diffuse>
         </material>
       </visual>
       
       <collision name="lid_collision">
-        <pose>0.06 0 0.005 0 0 0</pose>
+        <pose>0.125 0 0.025 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.12 0.10 0.01</size>
+            <size>0.25 0.20 0.05</size>
           </box>
         </geometry>
       </collision>
       
       <inertial>
-        <pose>0.06 0 0.005 0 0 0</pose>
-        <mass>0.1</mass>
+        <pose>0.125 0 0.025 0 0 0</pose>
+        <mass>0.3</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>0.001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0002</iyy>
+          <iyy>0.002</iyy>
           <iyz>0</iyz>
-          <izz>0.0002</izz>
+          <izz>0.002</izz>
         </inertia>
       </inertial>
     </link>
@@ -524,18 +512,18 @@
     <joint name="lid_joint" type="revolute">
       <parent>storage_box_link</parent>
       <child>lid_link</child>
-      <pose>-0.06 0 0.045 0 0 0</pose>
+      <pose> 0 0 0.0 0 0 0</pose>
       <axis>
         <xyz>0 -1 0</xyz>
         <limit>
-          <lower>-0.05</lower>
-          <upper>1.2</upper>
-          <effort>10</effort>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>50</effort>
           <velocity>2.0</velocity>
         </limit>
         <dynamics>
-          <damping>0.8</damping>
-          <friction>0.3</friction>
+          <damping>0.2</damping>
+          <friction>0.05</friction>
         </dynamics>
       </axis>
     </joint>
@@ -637,7 +625,7 @@
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>lid_joint</joint_name>
       <topic>lid_joint_position_controller/command</topic>
-      <initial_position>-0.02</initial_position>
+      <initial_position>0</initial_position>
       <p_gain>3000</p_gain>
       <i_gain>2.0</i_gain>
       <d_gain>300</d_gain>

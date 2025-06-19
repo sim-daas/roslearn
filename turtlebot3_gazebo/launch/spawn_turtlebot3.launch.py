@@ -84,6 +84,16 @@ def generate_launch_description():
         output='screen',
     )
     
+    # Bridge for TF to fix frame issues
+    tf_bridge_cmd = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V'
+        ],
+        output='screen',
+    )
+    
     # Bridge for lid joint control
     lid_bridge_cmd = Node(
         package='ros_gz_bridge',
@@ -103,6 +113,7 @@ def generate_launch_description():
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)
     ld.add_action(start_gazebo_ros_bridge_cmd)
+    ld.add_action(tf_bridge_cmd)
     ld.add_action(start_gazebo_ros_image_bridge_cmd) if TURTLEBOT3_MODEL != 'burger' else None
     ld.add_action(lid_bridge_cmd)
 
