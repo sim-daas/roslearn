@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'rostut'
 
@@ -10,6 +12,16 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch',
+            ['launch/robolaunch.launch.py']),
+        ('share/' + package_name + '/urdf',
+            ['urdf/robot.urdf.xacro', 'urdf/robocore.urdf.xacro']),
+        ('share/' + package_name + '/worlds',
+            ['worlds/empty.world']),
+        ('share/' + package_name + '/models',
+            ['models/robot/robot.sdf']),
+        ('share/' + package_name + '/models/shooter/meshes',
+            ['models/shooter/meshes/barrel.stl', 'models/shooter/meshes/box.stl', 'models/shooter/meshes/nbarrel.stl']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

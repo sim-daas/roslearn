@@ -1,0 +1,349 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="myrobot">
+    <pose>0 0 0 0 0 0</pose>
+
+    <!-- Base footprint (empty link for ground reference) -->
+    <link name="base_footprint">
+      <pose>0 0 0 0 0 0</pose>
+    </link>
+
+    <!-- Main chassis/base_link -->
+    <link name="base_link">
+      <pose>0.5 0 0 0 0 0</pose>
+      <inertial>
+        <mass>5.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+      <visual name="base_visual">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1 0.6 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+      <collision name="base_collision">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1 0.6 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Left Back Wheel -->
+    <link name="lbwheel">
+      <pose>0.1 0.3 0.1 -1.5708 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="lbwheel_visual">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="lbwheel_collision">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Left Front Wheel -->
+    <link name="lfwheel">
+      <pose>0.9 0.3 0.1 -1.5708 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="lfwheel_visual">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="lfwheel_collision">
+        <pose>0 0 0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Right Front Wheel -->
+    <link name="rfwheel">
+      <pose>0.9 -0.3 0.1 -1.5708 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="rfwheel_visual">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rfwheel_collision">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Right Back Wheel -->
+    <link name="rbwheel">
+      <pose>0.1 -0.3 0.1 -1.5708 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="rbwheel_visual">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rbwheel_collision">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Box -->
+    <link name="box">
+      <pose>0.5 0 0.4 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.05</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.05</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.05</izz>
+        </inertia>
+      </inertial>
+      <visual name="box_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+            <mesh>
+              <uri>model://shooter/meshes/box.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+        </geometry>
+        <material>
+          <ambient>0.1 0.3 0.1 1</ambient>
+          <diffuse>0.1 0.3 0.1 1</diffuse>
+        </material>
+      </visual>
+      <collision name="box_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.4 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Lid -->
+    <link name="lid">
+      <pose>0.1 0 0.65 0 0 0</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="lid_visual">
+        <pose>0.4 0 0.0175 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.4 0.035</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.25 0.5 1</ambient>
+          <diffuse>0.1 0.25 0.5 1</diffuse>
+        </material>
+      </visual>
+      <collision name="lid_collision">
+        <pose>0.4 0 0.0175 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.4 0.035</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Joints -->
+    <joint name="chassijoint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+    </joint>
+
+    <joint name="lbwheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>lbwheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="lfwheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>lfwheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="rfwheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rfwheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="rbwheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rbwheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="box_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>box</child>
+    </joint>
+
+    <joint name="lid_joint" type="revolute">
+      <parent>box</parent>
+      <child>lid</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- Gazebo plugins -->
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+    </plugin>
+
+    <!-- Joint position controller for lid -->
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>lid_joint</joint_name>
+      <topic>lid_joint_position_controller/command</topic>
+      <initial_position>0</initial_position>
+      <p_gain>3000</p_gain>
+      <i_gain>2.0</i_gain>
+      <d_gain>300</d_gain>
+      <i_max>150</i_max>
+      <i_min>-150</i_min>
+      <cmd_max>15</cmd_max>
+      <cmd_min>-15</cmd_min>
+    </plugin>
+
+  </model>
+</sdf>

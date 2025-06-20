@@ -1,0 +1,227 @@
+<?xml version="1.0" ?>
+<robot name="myrobot">
+
+
+<material name="grey">
+    <color rgba="0.5 0.5 0.5 1"/>
+</material>
+
+<material name="black">
+    <color rgba="0 0 0 1"/>
+</material>
+
+<material name="dark_green">
+    <color rgba="0.1 0.3 0.1 1"/>
+</material>
+
+<material name="dark_grey">
+    <color rgba="0.2 0.2 0.2 1"/>
+</material>
+
+<material name="dark_blue">
+    <color rgba="0.1 0.25 0.5 1"/>
+</material>
+
+<link name="base_link"/>
+
+<!-- Base Link -->
+
+<joint name="chassijoint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassi"/>
+    <origin xyz="0.5 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="chassi">
+    <visual>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        <geometry>
+            <box size="1 0.6 0.2"/>
+        </geometry>
+        <material name="grey"/>
+    </visual>
+</link>
+
+<!-- Left Back Wheel -->
+
+<joint name="lbwheel_joint" type="continuous">
+    <parent link="chassi"/>
+    <child link="lbwheel"/>
+    <origin xyz="-0.4 0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <axis xyz="0 0 -1"/>
+</joint>
+
+<link name="lbwheel">
+    <visual>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+
+<!-- Left Front Wheel -->
+
+<joint name="lfwheel_joint" type="continuous">
+    <parent link="chassi"/>
+    <child link="lfwheel"/>
+    <origin xyz="0.4 0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <axis xyz="0 0 -1"/>
+</joint>
+
+<link name="lfwheel">
+    <visual>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+
+<!-- Right Front Wheel -->
+
+<joint name="rfwheel_joint" type="continuous">
+    <parent link="chassi"/>
+    <child link="rfwheel"/>
+    <origin xyz="0.4 -0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <axis xyz="0 0 -1"/>
+</joint>
+
+<link name="rfwheel">
+    <visual>
+        <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+
+<!-- Right Back Wheel -->
+
+<joint name="rbwheel_joint" type="continuous">
+    <parent link="chassi"/>
+    <child link="rbwheel"/>
+    <origin xyz="-0.4 -0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <axis xyz="0 0 1"/>
+</joint>
+
+<link name="rbwheel">
+    <visual>
+        <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+<!-- Shooter base -->
+
+<joint name="shooter_joint" type="fixed">
+    <parent link="chassi"/>
+    <child link="shooter_base"/>
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+</joint>
+
+<link name="shooter_base">
+    <visual>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.18" length="0.1"/>
+        </geometry>
+        <material name="dark_green"/>
+    </visual>
+</link>
+
+<!-- Rotator -->
+
+<joint name="rotator_joint" type="revolute">
+    <parent link="shooter_base"/>
+    <child link="rotator"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="1.0" lower="-${pi}" upper="${pi}"/>
+</joint>
+
+<link name="rotator">
+    <visual>
+        <origin xyz="0 0 0.015" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.17" length="0.03"/>
+        </geometry>
+        <material name="dark_grey"/>
+    </visual>
+</link>
+
+<!-- Barrel -->
+
+<joint name="barrel_joint" type="revolute">
+    <parent link="rotator"/>
+    <child link="barrel"/>
+    <origin xyz="0 0 0.055" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="100" velocity="1.0" lower="0" upper="${pi}"/>
+</joint>
+
+<link name="barrel">
+    <visual>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <!--  <cylinder radius="0.05" length="0.65"/> -->
+          <mesh filename="package://rostut/models/barrel.stl" scale="1 1 1"/>
+        </geometry>
+        <collision>
+            <origin xyz="0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rostut/models/barrel.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <material name="black"/>
+    </visual>
+</link>
+
+<!-- Stopper -->
+
+<joint name="stopper_joint" type="prismatic">
+    <parent link="barrel"/>
+    <child link="stopper"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="100" velocity="1.0" lower="0" upper="0.55"/>
+</joint>
+
+<link name="stopper">
+    <visual>
+        <origin xyz="0.05 0 0" rpy="0 ${pi/2} 0"/>
+        <geometry>
+            <cylinder radius="0.0165" length="0.1"/>
+        </geometry>
+        <material name="grey"/>
+    </visual>
+</link>
+
+<!-- Connector -->
+
+<joint name="connector_joint" type="fixed">
+    <parent link="rotator"/>
+    <child link="connector"/>
+    <origin xyz="0 0 0.055" rpy="0 0 0"/>
+</joint>
+
+<link name="connector">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <sphere radius="0.045"/>
+        </geometry>
+        <material name="dark_blue"/>
+    </visual>
+</link>
+
+</robot>
