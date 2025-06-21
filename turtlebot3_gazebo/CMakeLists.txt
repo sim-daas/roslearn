@@ -82,7 +82,15 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch models params rviz urdf worlds
+# Install directories
+install(DIRECTORY
+  launch
+  worlds
+  models
+  urdf
+  rviz
+  config
+  params
   DESTINATION share/${PROJECT_NAME}/
 )
 

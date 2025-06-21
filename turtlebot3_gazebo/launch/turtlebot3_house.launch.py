@@ -42,8 +42,7 @@ def generate_launch_description():
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(launch_file_dir, 'robot_state_publisher.launch.py')
-        ),
-        launch_arguments={'use_sim_time': use_sim_time}.items()
+        ),        launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     spawn_turtlebot_cmd = IncludeLaunchDescription(
@@ -52,7 +51,8 @@ def generate_launch_description():
         ),
         launch_arguments={
             'x_pose': x_pose,
-            'y_pose': y_pose
+            'y_pose': y_pose,
+            'use_sim_time': use_sim_time
         }.items()
     )
 
@@ -67,19 +67,47 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', rviz_config_file],
-        parameters=[{'use_sim_time': use_sim_time}],
+        arguments=['-d', rviz_config_file],        parameters=[{'use_sim_time': use_sim_time}],
         output='screen'
+    )
+
+    # SLAM Toolbox using online async launch from slam_toolbox package
+    slam_config_file = os.path.join(
+        get_package_share_directory('turtlebot3_gazebo'),
+        'config',
+        'mapper_params_online_async.yaml'
+    )
+    
+    slam_toolbox_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('slam_toolbox'),
+                'launch',
+                'online_async_launch.py'
+            )
+        ),
+        launch_arguments={
+            'use_sim_time': use_sim_time,
+            'params_file': slam_config_file
+        }.items()
+    )
+
+    # Static transform publisher for map->odom (initially identity)
+    static_transform_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='map_to_odom_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time}]
     )
 
     set_env_vars_resources = AppendEnvironmentVariable(
             'GZ_SIM_RESOURCE_PATH',
             os.path.join(
-                get_package_share_directory('turtlebot3_gazebo'),
-                'models'))
+                get_package_share_directory('turtlebot3_gazebo'),                'models'))
 
     ld = LaunchDescription()
-
+    
     # Add the commands to the launch description
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
@@ -87,5 +115,7 @@ def generate_launch_description():
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(set_env_vars_resources)
     ld.add_action(rviz2_cmd)
+    ld.add_action(slam_toolbox_cmd)    
+  #  ld.add_action(static_transform_publisher)
 
     return ld

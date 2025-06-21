@@ -15,7 +15,7 @@ def generate_launch_description():
     urdf_file = os.path.join(pkg_share, 'urdf', 'robot.urdf.xacro')
     
     # World file path
-    world_file = os.path.join(pkg_share, 'worlds', 'empty.world')
+    world_file = os.path.join(pkg_share, 'worlds', 'houseoffice.sdf')
     
     # Declare launch arguments
     use_sim_time_arg = DeclareLaunchArgument(
@@ -95,7 +95,9 @@ def generate_launch_description():
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
             '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/lid_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double'
+            '/lid_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
+            '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
+            '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'
         ],
         output='screen'
     )
