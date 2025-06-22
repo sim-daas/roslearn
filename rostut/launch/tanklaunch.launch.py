@@ -73,7 +73,7 @@ def generate_launch_description():
     )
     
     # Spawn robot in Gazebo using SDF file
-    sdf_file = os.path.join(pkg_share, 'models', 'robot.sdf')
+    sdf_file = os.path.join(pkg_share, 'models', 'tank.sdf')
     spawn_robot_cmd = Node(
         package='ros_gz_sim',
         executable='create',
@@ -95,7 +95,9 @@ def generate_launch_description():
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
             '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/lid_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
+            '/rotate_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
+            '/barrel_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
+            '/stopper_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
             '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
             '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'
         ],

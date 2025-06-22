@@ -79,6 +79,7 @@ install(PROGRAMS
   scripts/yolo_object_follower.py
   scripts/spawn_person.py
   scripts/face_recognition_node.py
+  scripts/setup_latest_map.sh
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -91,6 +92,7 @@ install(DIRECTORY
   rviz
   config
   params
+  maps
   DESTINATION share/${PROJECT_NAME}/
 )
 
