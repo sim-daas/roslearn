@@ -318,11 +318,11 @@
 
         <inertial>
             <pose>0 0 0 0 0 0</pose>
-            <mass>0.5</mass>
+            <mass>20</mass> <!-- Increased mass -->
             <inertia>
-                <ixx>0.001</ixx>
-                <iyy>0.001</iyy>
-                <izz>0.001</izz>
+                <ixx>0.005</ixx> <!-- Increased inertia -->
+                <iyy>0.005</iyy>
+                <izz>0.005</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -398,11 +398,11 @@
 
         <inertial>
             <pose>0 0 0 0 0 0</pose>
-            <mass>0.1</mass>
+            <mass>0.001</mass> <!-- Increased mass -->
             <inertia>
-                <ixx>1e-5</ixx>
-                <iyy>1e-5</iyy>
-                <izz>1e-5</izz>
+                <ixx>0.00001</ixx> <!-- Increased inertia -->
+                <iyy>0.00001</iyy>
+                <izz>0.00001</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -479,9 +479,12 @@
       <limit>
         <lower>0</lower>
         <upper>1.57</upper>
-        <effort>10</effort>
-        <velocity>1</velocity>
+        <effort>10000</effort> <!-- Increased effort 10 times -->
+        <velocity>100</velocity>
       </limit>
+      <dynamics>
+        <damping>0.2</damping> <!-- Added damping to reduce wobbling -->
+      </dynamics>
     </axis>
   </joint>
 
@@ -498,9 +501,12 @@
       <limit>
         <lower>0</lower>
         <upper>0.55</upper>
-        <effort>100</effort>
-        <velocity>10</velocity>
+        <effort>100000</effort> <!-- Increased effort 10 times -->
+        <velocity>1000</velocity> <!-- Corrected velocity limit to allow movement -->
       </limit>
+      <dynamics>
+        <damping>0.05</damping> <!-- Added damping to reduce wobbling -->
+      </dynamics>
     </axis>
   </joint>
 
@@ -517,9 +523,9 @@
       <topic>rotate_joint_position_controller/command</topic>
       <initial_position>0</initial_position>
         <pid>
-            <p>100</p>
-            <i>0</i>
-            <d>0</d>
+            <p>1000</p>
+            <i>50</i>
+            <d>10</d>
         </pid>
     </plugin>
 
@@ -528,11 +534,11 @@
       <joint_name>barrel_joint</joint_name>
       <topic>barrel_joint_position_controller/command</topic>
       <initial_position>0</initial_position>
-        <pid>
-            <p>100</p>
-            <i>0</i>
-            <d>0</d>
-        </pid>
+    <pid>
+        <p>1500</p> <!-- Increased proportional gain -->
+        <i>100</i> <!-- Increased integral gain -->
+        <d>20</d> <!-- Increased derivative gain -->
+    </pid>
     </plugin>
 
     <!-- Joint position controller for the stopper -->
@@ -540,11 +546,11 @@
       <joint_name>stopper_joint</joint_name>
       <topic>stopper_joint_position_controller/command</topic>
       <initial_position>0</initial_position>
-        <pid>
-            <p>100</p>
-            <i>0</i>
-            <d>0</d>
-        </pid>
+    <pid>
+        <p>3000</p> <!-- Increased proportional gain -->
+        <i>200</i> <!-- Increased integral gain -->
+        <d>50</d> <!-- Increased derivative gain -->
+    </pid>
     </plugin>
 
   </model>
