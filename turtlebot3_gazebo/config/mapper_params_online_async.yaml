@@ -18,7 +18,7 @@ slam_toolbox:
     mode: mapping #localization
 
     # Map saving configuration
-    map_file_name: /root/devws/src/roslearn/turtlebot3_gazebo/maps/map
+    map_file_name: /root/map
     map_start_pose: [0.0, 0.0, 0.0]
     #map_start_at_dock: true
 

@@ -3,13 +3,13 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from std_srvs.srv import SetBool
 import cv2
 import face_recognition
 import numpy as np
 import os
 import threading
 import time
+from std_msgs.msg import Float64
 
 class FaceRecognitionNode(Node):
     def __init__(self):
@@ -19,8 +19,8 @@ class FaceRecognitionNode(Node):
         self.detstate_sub = self.create_subscription(
             String, '/detstate', self.detstate_callback, 10)
         
-        # Service client for lid control
-        self.lid_control_client = self.create_client(SetBool, '/control_lid')
+        # Publisher for lid control (publishes Float64 to /lid_joint_position_controller/)
+        self.lid_pub = self.create_publisher(Float64, '/lid_joint_position_controller', 10)
         
         # Face recognition setup
         self.known_face_encodings = []
@@ -123,7 +123,7 @@ class FaceRecognitionNode(Node):
         
         # Close lid when stopping face recognition
         if self.lid_is_open:
-            self.call_lid_control_service(False)
+            self.publish_lid_position(0.0)
             self.lid_is_open = False
             self.lid_open_time = None
         
@@ -154,7 +154,7 @@ class FaceRecognitionNode(Node):
             current_time = time.time()
             if self.lid_is_open and self.lid_open_time and (current_time - self.lid_open_time) > self.lid_open_duration:
                 self.get_logger().info('Lid timeout reached, closing lid')
-                self.call_lid_control_service(False)
+                self.publish_lid_position(0.0)
                 self.lid_is_open = False
                 self.lid_open_time = None
             
@@ -202,14 +202,14 @@ class FaceRecognitionNode(Node):
                         # Immediately close lid if unknown face is detected
                         if self.lid_is_open:
                             self.get_logger().info('Unknown face detected, closing lid immediately')
-                            self.call_lid_control_service(False)
+                            self.publish_lid_position(0.0)
                             self.lid_is_open = False
                             self.lid_open_time = None
                     elif known_face_detected:
                         # Open lid and reset timer for known face
                         if not self.lid_is_open:
                             self.get_logger().info('Known face detected, opening lid')
-                            self.call_lid_control_service(True)
+                            self.publish_lid_position(1.56)
                             self.lid_is_open = True
                         # Reset or set the timer
                         self.lid_open_time = current_time
@@ -268,34 +268,34 @@ class FaceRecognitionNode(Node):
             # Small delay to prevent excessive CPU usage
             time.sleep(0.03)  # ~30 FPS
 
-    def call_lid_control_service(self, open_lid):
-        """Call the lid control service"""
-        if not self.lid_control_client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().error('Lid control service not available')
-            return
-        
-        request = SetBool.Request()
-        request.data = open_lid
-        
-        future = self.lid_control_client.call_async(request)
-        future.add_done_callback(self.lid_control_callback)
-
-    def lid_control_callback(self, future):
-        """Handle lid control service response"""
-        try:
-            response = future.result()
-            if response.success:
-                self.get_logger().info('Lid control service called successfully')
-            else:
-                self.get_logger().warn(f'Lid control service failed: {response.message}')
-        except Exception as e:
-            self.get_logger().error(f'Lid control service call failed: {str(e)}')
+    def publish_lid_position(self, position):
+        """Publish lid position (0.0 for close, 1.56 for open)"""
+        msg = Float64()
+        msg.data = position
+        self.lid_pub.publish(msg)
 
     def destroy_node(self):
         """Clean up resources"""
         self.stop_face_recognition()
         cv2.destroy_all_windows()
         super().destroy_node()
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = FaceRecognitionNode()
+    
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+    cv2.destroy_all_windows()
+    super().destroy_node()
 
 def main(args=None):
     rclpy.init(args=args)

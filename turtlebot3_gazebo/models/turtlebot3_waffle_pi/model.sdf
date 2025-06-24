@@ -624,7 +624,7 @@
     <!-- Simple joint position controller for lid -->
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>lid_joint</joint_name>
-      <topic>lid_joint_position_controller/command</topic>
+      <topic>lid_joint_position_controller</topic>
       <initial_position>0</initial_position>
       <p_gain>3000</p_gain>
       <i_gain>2.0</i_gain>

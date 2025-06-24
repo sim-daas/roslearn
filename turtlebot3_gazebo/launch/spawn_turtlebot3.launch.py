@@ -89,7 +89,7 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/lid_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double'
+            '/lid_joint_position_controller@std_msgs/msg/Float64@gz.msgs.Double'
         ],
         output='screen',
     )

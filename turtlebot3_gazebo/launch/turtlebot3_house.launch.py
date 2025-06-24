@@ -108,54 +108,6 @@ def generate_launch_description():
         }.items()
     )
 
-    # Static transform publisher for map->odom (initially identity)
-    static_transform_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='map_to_odom_publisher',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time}]
-    )
-
-    # Nav2 navigation configuration
-    nav2_config_file = os.path.join(
-        get_package_share_directory('turtlebot3_gazebo'),
-        'config',
-        'nav2_params.yaml'
-    )
-    
-    # Nav2 navigation launch
-    nav2_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('nav2_bringup'),
-                'launch',
-                'navigation_launch.py'
-            )
-        ),
-        launch_arguments={
-            'use_sim_time': use_sim_time,
-            'params_file': nav2_config_file,
-            'use_composition': 'True'
-        }.items()
-    )
-
-    # Map server for localization with saved maps
-    map_server_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('nav2_bringup'),
-                'launch',
-                'localization_launch.py'
-            )
-        ),
-        launch_arguments={
-            'use_sim_time': use_sim_time,
-            'params_file': nav2_config_file,
-            'map': os.path.join(maps_dir, 'map_latest.yaml')
-        }.items()
-    )
-
     set_env_vars_resources = AppendEnvironmentVariable(
             'GZ_SIM_RESOURCE_PATH',
             os.path.join(
@@ -172,10 +124,5 @@ def generate_launch_description():
     ld.add_action(set_env_vars_resources)
     ld.add_action(rviz2_cmd)
     ld.add_action(slam_toolbox_cmd)
-    # Comment out conflicting static transform - SLAM will handle map->odom
-    # ld.add_action(static_transform_publisher)
-    # Comment out nav2 for SLAM mode - uncomment for navigation mode
-    # ld.add_action(nav2_cmd)
-    # ld.add_action(map_server_cmd)
 
     return ld
