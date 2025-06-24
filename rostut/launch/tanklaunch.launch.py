@@ -87,20 +87,14 @@ def generate_launch_description():
         output='screen'
     )
     
-    # ROS-GZ Bridge for basic topics including joint states and TF
+    # ROS-GZ Bridge
+    gz_bridge_config = os.path.join(pkg_share, 'config', 'gz_bridge.yaml')
     bridge_cmd = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=[
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/rotate_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
-            '/barrel_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
-            '/stopper_joint_position_controller/command@std_msgs/msg/Float64@gz.msgs.Double',
-            '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image',
-            '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'
-        ],
+        parameters=[{
+            'config_file': gz_bridge_config
+        }],
         output='screen'
     )
     

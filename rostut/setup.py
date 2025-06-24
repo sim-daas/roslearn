@@ -22,6 +22,8 @@ setup(
             ['models/robot.sdf', 'models/tank.sdf']),
         ('share/' + package_name + '/models/shooter/meshes',
             ['models/shooter/meshes/barrel.stl', 'models/shooter/meshes/box.stl', 'models/shooter/meshes/nbarrel.stl']),
+        ('share/' + package_name + '/config',
+            ['config/gz_bridge.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

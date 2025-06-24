@@ -277,11 +277,11 @@
 
         <inertial>
             <pose>0 0 0 0 0 0</pose>
-            <mass>0.5</mass>
+            <mass>0.05</mass>
             <inertia>
-                <ixx>0.001</ixx>
-                <iyy>0.001</iyy>
-                <izz>0.001</izz>
+                <ixx>0.00001</ixx>
+                <iyy>0.00001</iyy>
+                <izz>0.00001</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -465,9 +465,12 @@
       <limit>
         <lower>-3.14</lower>
         <upper>3.14</upper>
-        <effort>10</effort>
-        <velocity>1</velocity>
+        <effort>1000</effort>
+        <velocity>4</velocity>
       </limit>
+        <dynamics>
+            <damping>0.1</damping> <!-- Added damping to reduce wobbling -->
+        </dynamics>
     </axis>
   </joint>
 
