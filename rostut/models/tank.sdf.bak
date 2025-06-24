@@ -168,14 +168,15 @@
     </link>
 
     <link name="lfwheel">
-        <pose>0.9 0 0.1 0 0 0</pose>
+        <pose>0.9 0.4 0.1 -1.57 0 0</pose>
 
          <visual name="lfwheel_visual">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
-                <sphere>
+                <cylinder>
                     <radius>0.2</radius>
-                </sphere>
+                    <length>0.2</length>
+                </cylinder>
             </geometry>
             <material>
                 <ambient>0 0 0 1</ambient>
@@ -186,11 +187,21 @@
         <collision name="lfwheel_collision">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
-                <sphere>
+                <cylinder>
                     <radius>0.2</radius>
-                </sphere>
+                    <length>0.2</length>
+                </cylinder>
             </geometry>
             <surface>
+            <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+            </friction>
             <contact>
             <ode>
               <soft_cfm>0</soft_cfm>
@@ -208,9 +219,71 @@
             <pose>0 0 0 0 0 0</pose>
             <mass>2</mass>
             <inertia>
-                <ixx>0.0001</ixx>
-                <iyy>0.0001</iyy>
-                <izz>0.0001</izz>
+                <ixx>0.01</ixx>
+                <iyy>0.01</iyy>
+                <izz>0.01</izz>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyz>0</iyz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <link name="rfwheel">
+        <pose>0.9 -0.4 0.1 -1.57 0 0</pose>
+
+         <visual name="rfwheel_visual">
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+                <cylinder>
+                    <radius>0.2</radius>
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+            <material>
+                <ambient>0 0 0 1</ambient>
+                <diffuse>0 0 0 1</diffuse>
+            </material>
+        </visual>
+
+        <collision name="rfwheel_collision">
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+                <cylinder>
+                    <radius>0.2</radius>
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+            <surface>
+            <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+            </friction>
+            <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+5</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          </surface>
+        </collision>
+
+        <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>2</mass>
+            <inertia>
+                <ixx>0.01</ixx>
+                <iyy>0.01</iyy>
+                <izz>0.01</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -453,11 +526,28 @@
     </axis>
   </joint>
 
-  <joint name="lfwheel_joint" type="ball">
+  <joint name="lfwheel_joint" type="revolute">
     <parent>base_link</parent>
     <child>lfwheel</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+        <limit>
+          <effort>20</effort>
+        </limit>
+    </axis>
   </joint>
-  
+
+  <joint name="rfwheel_joint" type="revolute">
+    <parent>base_link</parent>
+    <child>rfwheel</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+        <limit>
+          <effort>20</effort>
+        </limit>
+    </axis>
+  </joint>
+
   <joint name="shooter_base_joint" type="fixed">
     <parent>base_link</parent>
     <child>shooter_base</child>

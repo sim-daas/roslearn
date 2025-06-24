@@ -3,8 +3,9 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
+from geometry_msgs.msg import Twist
 import tkinter as tk
-from tkinter import Scale
+from tkinter import Scale, Label
 
 class JointPublisherGUI(Node):
     def __init__(self):
@@ -14,7 +15,14 @@ class JointPublisherGUI(Node):
         self.barrel_pub = self.create_publisher(Float64, '/barrel_joint_position_controller/command', 10)
         self.stopper_pub = self.create_publisher(Float64, '/stopper_joint_position_controller/command', 10)
         self.rotator_pub = self.create_publisher(Float64, '/rotate_joint_position_controller/command', 10)
+        self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
         
+        # Movement state
+        self.linear_vel = 0.0
+        self.angular_vel = 0.0
+        self.linear_speed = 0.5  # m/s
+        self.angular_speed = 1.0 # rad/s
+
         # GUI setup
         self.root = tk.Tk()
         self.root.title("Tank Joint Control")
@@ -33,6 +41,14 @@ class JointPublisherGUI(Node):
         self.rotator_slider = Scale(self.root, from_=-3.14, to=3.14, resolution=0.01, orient=tk.HORIZONTAL, label="Rotator Angle (rad)", length=400, command=self.publish_rotator)
         self.rotator_slider.pack(pady=10)
         self.rotator_slider.bind("<Button-1>", self.set_slider_from_click)
+
+        # Keyboard control instructions
+        self.key_instructions = Label(self.root, text="Use WASD keys to move the robot.\nClick on the window to focus for keyboard control.")
+        self.key_instructions.pack(pady=10)
+
+        # Bind keyboard events
+        self.root.bind("<KeyPress>", self.on_key_press)
+        self.root.bind("<KeyRelease>", self.on_key_release)
 
         # Integrate ROS2 spin with tkinter event loop
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -55,6 +71,43 @@ class JointPublisherGUI(Node):
         msg.data = float(value)
         self.rotator_pub.publish(msg)
         self.get_logger().info(f'Publishing Rotator: {msg.data}')
+
+    def on_key_press(self, event):
+        key = event.keysym.lower()
+        changed = True
+        if key == 'w':
+            self.linear_vel = self.linear_speed
+        elif key == 's':
+            self.linear_vel = -self.linear_speed
+        elif key == 'a':
+            self.angular_vel = self.angular_speed
+        elif key == 'd':
+            self.angular_vel = -self.angular_speed
+        else:
+            changed = False
+        
+        if changed:
+            self.publish_cmd_vel()
+
+    def on_key_release(self, event):
+        key = event.keysym.lower()
+        changed = True
+        if key in ['w', 's']:
+            self.linear_vel = 0.0
+        elif key in ['a', 'd']:
+            self.angular_vel = 0.0
+        else:
+            changed = False
+        
+        if changed:
+            self.publish_cmd_vel()
+
+    def publish_cmd_vel(self):
+        msg = Twist()
+        msg.linear.x = self.linear_vel
+        msg.angular.z = self.angular_vel
+        self.cmd_vel_pub.publish(msg)
+        self.get_logger().info(f'Publishing cmd_vel: linear.x={msg.linear.x}, angular.z={msg.angular.z}')
 
     def set_slider_from_click(self, event):
         """Moves the slider to the clicked position."""
