@@ -12,7 +12,7 @@
             <pose>0 0 0 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>1 0.6 0.2</size>
+                    <size>1.2 0.6 0.2</size>
                 </box>
             </geometry>
             <material>
@@ -45,7 +45,7 @@
     </link>
 
     <link name="lbwheel">
-        <pose>0.1 0.4 0.1 -1.57 0 0</pose>
+        <pose>0.5 0.4 0.1 -1.57 0 0</pose>
 
          <visual name="lbwheel_visual">
             <pose>0 0 0 0 0 0</pose>
@@ -72,11 +72,8 @@
             <surface>
             <friction>
             <ode>
-              <mu>100000</mu>
-              <mu2>100000</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0.0</slip1>
-              <slip2>0.0</slip2>
+              <mu>100</mu>
+              <mu2>100</mu2>
             </ode>
             </friction>
             <contact>
@@ -105,10 +102,64 @@
             </inertia>
         </inertial>
     </link>
+
     <link name="rbwheel">
-        <pose>0.1 -0.4 0.1 -1.57 0 0</pose>
+        <pose>0.1 0 0.1 0 0 0</pose>
 
          <visual name="rbwheel_visual">
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+                <sphere>
+                    <radius>0.2</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <ambient>0 0 0 1</ambient>
+                <diffuse>0 0 0 1</diffuse>
+            </material>
+        </visual>
+
+        <collision name="rbwheel_collision">
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+                <sphere>
+                    <radius>0.2</radius>
+                </sphere>
+            </geometry>
+            <surface>
+            <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+            </friction>
+          <contact>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+            </ode>
+          </contact>
+        </surface>
+        </collision>
+
+        <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>0.5</mass>
+            <inertia>
+                <ixx>0.00001</ixx>
+                <iyy>0.00001</iyy>
+                <izz>0.00001</izz>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyz>0</iyz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <link name="rfwheel">
+        <pose>0.5 -0.4 0.1 -1.57 0 0</pose>
+
+         <visual name="rfwheel_visual">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
                 <cylinder>
@@ -122,7 +173,7 @@
             </material>
         </visual>
 
-        <collision name="rbwheel_collision">
+        <collision name="rfwheel_collision">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
                 <cylinder>
@@ -133,11 +184,8 @@
             <surface>
             <friction>
             <ode>
-              <mu>100000</mu>
-              <mu2>100000</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0.0</slip1>
-              <slip2>0.0</slip2>
+              <mu>100</mu>
+              <mu2>100</mu2>
             </ode>
             </friction>
             <contact>
@@ -168,15 +216,14 @@
     </link>
 
     <link name="lfwheel">
-        <pose>0.9 0.4 0.1 -1.57 0 0</pose>
+        <pose>0.9 0 0.1 0 0 0</pose>
 
          <visual name="lfwheel_visual">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
-                <cylinder>
+                <sphere>
                     <radius>0.2</radius>
-                    <length>0.2</length>
-                </cylinder>
+                </sphere>
             </geometry>
             <material>
                 <ambient>0 0 0 1</ambient>
@@ -187,103 +234,33 @@
         <collision name="lfwheel_collision">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
-                <cylinder>
+                <sphere>
                     <radius>0.2</radius>
-                    <length>0.2</length>
-                </cylinder>
+                </sphere>
             </geometry>
             <surface>
             <friction>
             <ode>
-              <mu>100000</mu>
-              <mu2>100000</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0.0</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
             </ode>
             </friction>
-            <contact>
+          <contact>
             <ode>
               <soft_cfm>0</soft_cfm>
               <soft_erp>0.2</soft_erp>
-              <kp>1e+5</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0.001</min_depth>
             </ode>
           </contact>
-          </surface>
+        </surface>
         </collision>
 
         <inertial>
             <pose>0 0 0 0 0 0</pose>
-            <mass>2</mass>
+            <mass>0.5</mass>
             <inertia>
-                <ixx>0.01</ixx>
-                <iyy>0.01</iyy>
-                <izz>0.01</izz>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyz>0</iyz>
-            </inertia>
-        </inertial>
-    </link>
-
-    <link name="rfwheel">
-        <pose>0.9 -0.4 0.1 -1.57 0 0</pose>
-
-         <visual name="rfwheel_visual">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <cylinder>
-                    <radius>0.2</radius>
-                    <length>0.2</length>
-                </cylinder>
-            </geometry>
-            <material>
-                <ambient>0 0 0 1</ambient>
-                <diffuse>0 0 0 1</diffuse>
-            </material>
-        </visual>
-
-        <collision name="rfwheel_collision">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <cylinder>
-                    <radius>0.2</radius>
-                    <length>0.2</length>
-                </cylinder>
-            </geometry>
-            <surface>
-            <friction>
-            <ode>
-              <mu>100000</mu>
-              <mu2>100000</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0.0</slip1>
-              <slip2>0.0</slip2>
-            </ode>
-            </friction>
-            <contact>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+5</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0.001</min_depth>
-            </ode>
-          </contact>
-          </surface>
-        </collision>
-
-        <inertial>
-            <pose>0 0 0 0 0 0</pose>
-            <mass>2</mass>
-            <inertia>
-                <ixx>0.01</ixx>
-                <iyy>0.01</iyy>
-                <izz>0.01</izz>
+                <ixx>0.00001</ixx>
+                <iyy>0.00001</iyy>
+                <izz>0.00001</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -363,9 +340,9 @@
             <pose>0 0 0 0 0 0</pose>
             <mass>0.05</mass>
             <inertia>
-                <ixx>0.00001</ixx>
-                <iyy>0.00001</iyy>
-                <izz>0.00001</izz>
+                <ixx>0.001</ixx>
+                <iyy>0.001</iyy>
+                <izz>0.001</izz>
                 <ixy>0</ixy>
                 <ixz>0</ixz>
                 <iyz>0</iyz>
@@ -373,126 +350,6 @@
         </inertial>
     </link>
 
-    <link name="barrel">
-        <pose>0.5 0 0.355 0 0 0</pose>
-
-         <visual name="barrel_visual">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <mesh>
-                    <uri>model://shooter/meshes/barrel.stl</uri>
-                    <scale>1 1 1</scale>
-                </mesh>
-            </geometry>
-            <material>
-                <ambient>0 0 0 1</ambient>
-                <diffuse>0 0 0 1</diffuse>
-            </material>
-        </visual>
-
-        <collision name="barrel_collision">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <mesh>
-                    <uri>model://shooter/meshes/barrel.stl</uri>
-                    <scale>1 1 1</scale>
-                </mesh>
-            </geometry>
-        </collision>
-
-        <inertial>
-            <pose>0 0 0 0 0 0</pose>
-            <mass>20</mass> <!-- Increased mass -->
-            <inertia>
-                <ixx>0.005</ixx> <!-- Increased inertia -->
-                <iyy>0.005</iyy>
-                <izz>0.005</izz>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyz>0</iyz>
-            </inertia>
-        </inertial>
-    </link>
-
-    <link name="connector">
-        <pose>0.5 0 0.355 0 0 0</pose>
-
-         <visual name="connector_visual">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <sphere>
-                    <radius>0.045</radius>
-                </sphere>
-            </geometry>
-            <material> 
-                <ambient>0.1 0.1 0.5 1</ambient>
-                <diffuse>0.1 0.1 0.5 1</diffuse>
-            </material>
-        </visual>
-
-        <collision name="connector_collision">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <sphere>
-                    <radius>0.045</radius>
-                </sphere>
-            </geometry>
-        </collision>
-
-        <inertial>
-            <pose>0 0 0 0 0 0</pose>
-            <mass>0.1</mass>
-            <inertia>
-                <ixx>1e-5</ixx>
-                <iyy>1e-5</iyy>
-                <izz>1e-5</izz>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyz>0</iyz>
-            </inertia>
-        </inertial>
-    </link>
-
-    <link name="stopper">
-        <pose>0.58 0 0.355 0 1.57 0</pose>
-
-         <visual name="stopper_visual">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <cylinder>
-                    <radius>0.0165</radius>
-                    <length>0.05</length>
-                </cylinder>
-            </geometry>
-            <material>
-                <ambient>0.5 0.5 0.5 1</ambient>
-                <diffuse>0.5 0.5 0.5 1</diffuse>
-            </material>
-        </visual>
-
-        <collision name="stopper_collision">
-            <pose>0 0 0 0 0 0</pose>
-            <geometry>
-                <cylinder>
-                    <radius>0.0165</radius>
-                    <length>0.1</length>
-                </cylinder>
-            </geometry>
-        </collision>
-
-        <inertial>
-            <pose>0 0 0 0 0 0</pose>
-            <mass>0.001</mass> <!-- Increased mass -->
-            <inertia>
-                <ixx>0.00001</ixx> <!-- Increased inertia -->
-                <iyy>0.00001</iyy>
-                <izz>0.00001</izz>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyz>0</iyz>
-            </inertia>
-        </inertial>
-    </link>
 
 
 
@@ -515,28 +372,6 @@
     </axis>
   </joint>
 
-  <joint name="rbwheel_joint" type="revolute">
-    <parent>base_link</parent>
-    <child>rbwheel</child>
-    <axis>
-      <xyz>0 0 1</xyz>
-        <limit>
-          <effort>20</effort>
-        </limit>
-    </axis>
-  </joint>
-
-  <joint name="lfwheel_joint" type="revolute">
-    <parent>base_link</parent>
-    <child>lfwheel</child>
-    <axis>
-      <xyz>0 0 1</xyz>
-        <limit>
-          <effort>20</effort>
-        </limit>
-    </axis>
-  </joint>
-
   <joint name="rfwheel_joint" type="revolute">
     <parent>base_link</parent>
     <child>rfwheel</child>
@@ -547,7 +382,17 @@
         </limit>
     </axis>
   </joint>
+  
+  <joint name="rbwheel_joint" type="ball">
+    <parent>base_link</parent>
+    <child>rbwheel</child>
+  </joint>
 
+  <joint name="lfwheel_joint" type="ball">
+    <parent>base_link</parent>
+    <child>lfwheel</child>
+  </joint>
+  
   <joint name="shooter_base_joint" type="fixed">
     <parent>base_link</parent>
     <child>shooter_base</child>
@@ -562,50 +407,11 @@
         <lower>-3.14</lower>
         <upper>3.14</upper>
         <effort>1000</effort>
-        <velocity>4</velocity>
+        <velocity>2.5</velocity>
       </limit>
         <dynamics>
-            <damping>0.1</damping> <!-- Added damping to reduce wobbling -->
+            <damping>0.2</damping> <!-- Added damping to reduce wobbling -->
         </dynamics>
-    </axis>
-  </joint>
-
-  <joint name="barrel_joint" type="revolute">
-    <parent>rotator</parent>
-    <child>barrel</child>
-    <axis>
-      <xyz>0 -1 0</xyz>
-      <limit>
-        <lower>0</lower>
-        <upper>1.57</upper>
-        <effort>100</effort> <!-- Increased effort 10 times -->
-        <velocity>100</velocity>
-      </limit>
-      <dynamics>
-        <damping>0.2</damping> <!-- Added damping to reduce wobbling -->
-      </dynamics>
-    </axis>
-  </joint>
-
-  <joint name="connector_joint" type="fixed">
-    <parent>barrel</parent>
-    <child>connector</child>
-  </joint>  
-
-  <joint name="stopper_joint" type="prismatic">
-    <parent>barrel</parent>
-    <child>stopper</child>
-    <axis>
-      <xyz>0 0 1</xyz>
-      <limit>
-        <lower>0</lower>
-        <upper>0.55</upper>
-        <effort>100</effort> <!-- Increased effort 10 times -->
-        <velocity>1000</velocity> <!-- Corrected velocity limit to allow movement -->
-      </limit>
-      <dynamics>
-        <damping>0.05</damping> <!-- Added damping to reduce wobbling -->
-      </dynamics>
     </axis>
   </joint>
 
@@ -626,30 +432,6 @@
             <i>50</i>
             <d>10</d>
         </pid>
-    </plugin>
-
-    <!-- Joint position controller for the barrel -->
-    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
-      <joint_name>barrel_joint</joint_name>
-      <topic>barrel_joint_position_controller/command</topic>
-      <initial_position>0</initial_position>
-    <pid>
-        <p>1500</p> <!-- Increased proportional gain -->
-        <i>100</i> <!-- Increased integral gain -->
-        <d>20</d> <!-- Increased derivative gain -->
-    </pid>
-    </plugin>
-
-    <!-- Joint position controller for the stopper -->
-    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
-      <joint_name>stopper_joint</joint_name>
-      <topic>stopper_joint_position_controller/command</topic>
-      <initial_position>0</initial_position>
-    <pid>
-        <p>3000</p> <!-- Increased proportional gain -->
-        <i>200</i> <!-- Increased integral gain -->
-        <d>50</d> <!-- Increased derivative gain -->
-    </pid>
     </plugin>
 
     <!-- Differential drive which controls the back 2 wheels and the front ones act as castor wheels -->

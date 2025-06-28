@@ -36,18 +36,18 @@
     <visual>
         <origin xyz="0 0 0.1" rpy="0 0 0"/>
         <geometry>
-            <box size="1 0.6 0.2"/>
+            <box size="1.2 0.6 0.2"/>
         </geometry>
         <material name="grey"/>
     </visual>
 </link>
 
-<!-- Left Back Wheel -->
+<!-- Left Wheel -->
 
 <joint name="lbwheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="lbwheel"/>
-    <origin xyz="-0.4 0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <origin xyz="0 0.3 0.1" rpy="-${pi/2} 0 0"/>
     <axis xyz="0 0 -1"/>
 </joint>
 
@@ -62,15 +62,15 @@
 </link>
 
 
-<!-- Left Front Wheel -->
+<!-- Front Castor Wheel -->
 
-<joint name="fcastorwheel_joint" type="continuous">
+<joint name="lfwheel_joint" type="continuous">
     <parent link="base_link"/>
-    <child link="fcastorwheel"/>
+    <child link="lfwheel"/>
     <origin xyz="0.4 0 0.1" rpy="0 0 0"/>
 </joint>
 
-<link name="fcastorwheel">
+<link name="lfwheel">
     <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -81,20 +81,39 @@
 </link>
 
 
-<!-- Right Back Wheel -->
+<!-- Right Front Wheel -->
 
-<joint name="rbwheel_joint" type="continuous">
+<joint name="rfwheel_joint" type="continuous">
     <parent link="base_link"/>
-    <child link="rbwheel"/>
-    <origin xyz="-0.4 -0.3 0.1" rpy="-${pi/2} 0 0"/>
-    <axis xyz="0 0 1"/>
+    <child link="rfwheel"/>
+    <origin xyz="0 -0.3 0.1" rpy="-${pi/2} 0 0"/>
+    <axis xyz="0 0 -1"/>
 </joint>
 
-<link name="rbwheel">
+<link name="rfwheel">
     <visual>
         <origin xyz="0 0 -0.1" rpy="0 0 0"/>
         <geometry>
             <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="black"/>
+    </visual>
+</link>
+
+
+<!-- Back Castor Wheel -->
+
+<joint name="rbwheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rbwheel"/>
+    <origin xyz="-0.4 0 0.1" rpy="0 0 0"/>
+</joint>
+
+<link name="rbwheel">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <sphere radius="0.2"/>
         </geometry>
         <material name="black"/>
     </visual>
@@ -138,69 +157,5 @@
     </visual>
 </link>
 
-<!-- Barrel -->
-
-<joint name="barrel_joint" type="revolute">
-    <parent link="rotator"/>
-    <child link="barrel"/>
-    <origin xyz="0 0 0.055" rpy="0 0 0"/>
-    <axis xyz="0 -1 0"/>
-    <limit effort="100" velocity="1.0" lower="0" upper="${pi}"/>
-</joint>
-
-<link name="barrel">
-    <visual>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/>
-        <geometry>
-          <!--  <cylinder radius="0.05" length="0.65"/> -->
-          <mesh filename="package://rostut/models/shooter/meshes/barrel.stl" scale="1 1 1"/>
-        </geometry>
-        <collision>
-            <origin xyz="0 0 0.0" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://rostut/models/shooter/meshes/barrel.stl" scale="1 1 1"/>
-            </geometry>
-        </collision>
-        <material name="black"/>
-    </visual>
-</link>
-
-<!-- Stopper -->
-
-<joint name="stopper_joint" type="prismatic">
-    <parent link="barrel"/>
-    <child link="stopper"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="100" velocity="1.0" lower="0" upper="0.55"/>
-</joint>
-
-<link name="stopper">
-    <visual>
-        <origin xyz="0.05 0 0" rpy="0 ${pi/2} 0"/>
-        <geometry>
-            <cylinder radius="0.0165" length="0.1"/>
-        </geometry>
-        <material name="grey"/>
-    </visual>
-</link>
-
-<!-- Connector -->
-
-<joint name="connector_joint" type="fixed">
-    <parent link="rotator"/>
-    <child link="connector"/>
-    <origin xyz="0 0 0.055" rpy="0 0 0"/>
-</joint>
-
-<link name="connector">
-    <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-            <sphere radius="0.045"/>
-        </geometry>
-        <material name="dark_blue"/>
-    </visual>
-</link>
 
 </robot>

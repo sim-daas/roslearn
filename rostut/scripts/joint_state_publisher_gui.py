@@ -33,7 +33,7 @@ class JointPublisherGUI(Node):
         self.barrel_slider.bind("<Button-1>", self.set_slider_from_click)
         
         # Stopper Slider
-        self.stopper_slider = Scale(self.root, from_=0.0, to=0.55, resolution=0.01, orient=tk.HORIZONTAL, label="Stopper Position (m)", length=400, command=self.publish_stopper)
+        self.stopper_slider = Scale(self.root, from_=0.0, to=0.95, resolution=0.01, orient=tk.HORIZONTAL, label="Stopper Position (m)", length=400, command=self.publish_stopper)
         self.stopper_slider.pack(pady=10)
         self.stopper_slider.bind("<Button-1>", self.set_slider_from_click)
 

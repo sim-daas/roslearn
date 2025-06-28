@@ -73,7 +73,7 @@ def generate_launch_description():
     )
     
     # Spawn robot in Gazebo using SDF file
-    sdf_file = os.path.join(pkg_share, 'models', 'tank.sdf')
+    sdf_file = os.path.join(pkg_share, 'models', 'nxp.sdf')
     spawn_robot_cmd = Node(
         package='ros_gz_sim',
         executable='create',
@@ -85,32 +85,6 @@ def generate_launch_description():
             '-z', '0.1'
         ],
         output='screen'
-    )
-    
-    # Spawn sphere inside barrel
-    sphere_sdf_file = os.path.join(pkg_share, 'models', 'sphere.sdf')
-    spawn_sphere_cmd = Node(
-        package='ros_gz_sim',
-        executable='create',
-        arguments=[
-            '-name', 'barrel_sphere',
-            '-file', sphere_sdf_file,
-            '-x', '0.65',  # Inside barrel position
-            '-y', '0.0',
-            '-z', '0.455'
-        ],
-        output='screen'
-    )
-    
-    # Ball Spawner Node
-    ball_spawner_cmd = Node(
-        package='rostut',
-        executable='ball_spawner',
-        name='ball_spawner',
-        output='screen',
-        parameters=[{
-            'use_sim_time': LaunchConfiguration('use_sim_time')
-        }]
     )
     
     # ROS-GZ Bridge
@@ -145,8 +119,6 @@ def generate_launch_description():
         gzserver_cmd,
         gzclient_cmd,
         spawn_robot_cmd,
-        spawn_sphere_cmd,
-        ball_spawner_cmd,
         bridge_cmd,
         rviz2_cmd,
     ])

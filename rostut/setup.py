@@ -13,13 +13,13 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch',
-            ['launch/robolaunch.launch.py', 'launch/tanklaunch.launch.py']),
+            ['launch/robolaunch.launch.py', 'launch/tanklaunch.launch.py', 'launch/nxplaunch.launch.py']),
         ('share/' + package_name + '/urdf',
-            ['urdf/robot.urdf.xacro', 'urdf/tank.urdf.xacro', 'urdf/robocore.urdf.xacro']),
+            ['urdf/robot.urdf.xacro', 'urdf/tank.urdf.xacro', 'urdf/nxp.urdf.xacro', 'urdf/robocore.urdf.xacro']),
         ('share/' + package_name + '/worlds',
             ['worlds/empty.world', 'worlds/houseoffice.sdf']),
         ('share/' + package_name + '/models',
-            ['models/robot.sdf', 'models/tank.sdf']),
+            ['models/robot.sdf', 'models/tank.sdf', 'models/nxp.sdf', 'models/sphere.sdf']),
         ('share/' + package_name + '/models/shooter/meshes',
             ['models/shooter/meshes/barrel.stl', 'models/shooter/meshes/box.stl', 'models/shooter/meshes/nbarrel.stl']),
         ('share/' + package_name + '/config',
@@ -34,6 +34,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'ball_spawner = rostut.ball_spawner:main'
         ],
     },
 )

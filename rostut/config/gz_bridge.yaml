@@ -53,3 +53,9 @@
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
   direction: "GZ_TO_ROS"
+
+# Service for spawning entities
+- topic_name: "/world/empty/create"
+  ros_type_name: "ros_gz_interfaces/srv/ControlWorld"
+  gz_type_name: "gz.msgs.EntityFactory"
+  direction: "BIDIRECTIONAL"
