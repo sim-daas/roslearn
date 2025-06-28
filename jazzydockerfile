@@ -1,0 +1,67 @@
+FROM osrf/ros:jazzy-desktop-full
+
+# Set DEBIAN_FRONTEND to noninteractive to avoid prompts during apt-get install
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN \
+    # Add ROS 2 setup to .bashrc
+    echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+
+# RUN 1: Install dependencies, create workspace, and clone core TurtleBot3 humble packages
+RUN apt-get update && apt-get install -y git python3-colcon-common-extensions \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /root/turtlebot3_ws/src \
+    && cd /root/turtlebot3_ws/src \
+    # Clone core TurtleBot3 packages for Humble
+    && git clone -b jazzy https://github.com/ROBOTIS-GIT/DynamixelSDK.git \
+    && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git \
+    && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3.git
+
+# TurtleBot3 setup steps (from setup_turtlebot.sh, excluding Gazebo installation)
+RUN /bin/bash -c "cd /root/turtlebot3_ws \
+    && source /opt/ros/jazzy/setup.bash \
+    && colcon build --symlink-install \
+    && echo 'source /root/turtlebot3_ws/install/setup.bash' >> /root/.bashrc \
+    && echo 'export ROS_DOMAIN_ID=0 #TURTLEBOT3' >> /root/.bashrc \
+    && cd /root/turtlebot3_ws/src \
+    && git clone -b jazzy https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git \
+    && cd /root/turtlebot3_ws \
+    && source /root/turtlebot3_ws/install/setup.bash \
+    && colcon build --symlink-install"
+
+# Install tmux, Ruby (for tmuxinator), and tmuxinator
+RUN apt-get update && apt-get install -y \
+    tmux \
+    ruby \
+    ruby-dev \
+    build-essential \
+    wget \
+    vim \
+    && /bin/bash -c "apt install ros-jazzy-moveit* -y" \
+    && rm -rf /var/lib/apt/lists/* \
+    && echo "INFO: Installing tmuxinator gem..." \
+    && gem install tmuxinator
+
+# Set TURTLEBOT3_MODEL environment variable in .bashrc
+RUN echo 'export TURTLEBOT3_MODEL=waffle_pi' >> /root/.bashrc
+RUN echo 'source /root/devws/install/setup.bash' >> /root/.bashrc
+
+# Copy tmuxinator configuration file
+RUN mkdir -p /root/.config/tmuxinator
+COPY turtlebot_dev.yml /root/.config/tmuxinator/turtlebot_dev.yml
+
+WORKDIR /root/
+
+RUN mkdir -p devws/src && \
+    cd devws && \
+    colcon build --symlink-install  
+
+RUN apt update && apt install python3-pip -y && \
+    pip3 install ultralytics face_recognition --break-system-packages
+
+RUN rm -r /root/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo
+RUN cd /root/devws/src/ && git clone https://github.com/sim-daas/roslearn
+RUN cd /root/devws && colcon build --symlink-install && cp ~/devws/src/roslearn/turtlebot3_gazebo/params/turtlebot_lid.yml ~/.config/tmuxinator/turtlebot_lid.yml
+# Optional: Set a command to automatically start tmuxinator, or inform the user.
+# For now, the user can manually start with: tmuxinator start turtlebot_dev
+CMD ["tmuxinator", "start", "turtlebot_lid"]
