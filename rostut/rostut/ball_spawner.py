@@ -98,8 +98,8 @@ class BallSpawner(Node):
         """Service callback to spawn a ball."""
         try:
             # For now, use fixed coordinates as requested
-            # x, y, z = self.calculate_ball_position()  # Uncomment for dynamic positioning
-            x, y, z = 0.65, 0.0, 0.455  # Fixed coordinates as requested
+            x, y, z = self.calculate_ball_position()  # Uncomment for dynamic positioning
+            #x, y, z = 0.65, 0.0, 0.455  # Fixed coordinates as requested
             
             # Generate unique ball name
             ball_name = f'ball_{self.ball_counter}'

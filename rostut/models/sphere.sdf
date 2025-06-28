@@ -7,19 +7,19 @@
       <visual name="sphere_visual">
         <geometry>
           <sphere>
-            <radius>0.012</radius>
+            <radius>0.015</radius>
           </sphere>
         </geometry>
         <material>
-          <ambient>1 0 0 1</ambient>
-          <diffuse>1 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
         </material>
       </visual>
       
       <collision name="sphere_collision">
         <geometry>
           <sphere>
-            <radius>0.012</radius>
+            <radius>0.015</radius>
           </sphere>
         </geometry>
       </collision>
